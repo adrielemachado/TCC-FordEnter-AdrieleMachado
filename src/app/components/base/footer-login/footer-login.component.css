@@ -1,0 +1,27 @@
+footer {
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+    padding: 1rem 2rem;
+    color: #333;
+    /* text-align: center; */
+    background-color: #ffffff;
+    justify-content: space-between;
+
+}
+
+.termos {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+ul {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    list-style: none;
+    color: #421D6F;
+}

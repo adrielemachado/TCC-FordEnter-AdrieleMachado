@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="titulo-pesquisa">
+    <h1>Aulas e Tutoriais</h1>
+    <p>Encontre aqui videoaulas e tutoriais para criar o seu próximo projeto</p>
+</div>
+<!-- filtro de pesquisa-->
+<div class="filtro">
+
+  <select name="dificuldade" id="dificuldade" class="filtro-campo" [(ngModel)]="filtros.dificuldade" (ngModelChange)="aplicarFiltros()">
+    <option value="Dificuldade">Dificuldade</option>
+    <option value="Iniciante">Iniciante</option>
+    <option value="Intermediário">Intermediário</option>
+    <option value="Avançado">Avançado</option>
+  </select>
+
+  <select name="tecnicas" id="tecnicas" class="filtro-campo" [(ngModel)]="filtros.tecnica" (ngModelChange)="aplicarFiltros()">
+    <option value="Técnicas">Técnicas</option>
+    <option value="Crochê">Crochê</option>
+    <option value="Tricô">Tricô</option>
+    <option value="Macramê">Macramê</option>
+    <option value="Amigurumi">Amigurumi</option>
+  </select>
+
+  <select name="categorias" id="categorias" class="filtro-campo" [(ngModel)]="filtros.categoria" (ngModelChange)="aplicarFiltros()">
+    <option value="Categorias">Categorias</option>
+    <option value="Vestuário">Vestuário</option>
+    <option value="Amigurumi">Amigurumi</option>
+    <option value="Jogo Americano">Jogo Americano e Sousplat</option>
+    <option value="Decoração">Decoração</option>
+  </select>
+</div>
+
+<div *ngIf="videosFiltrados.length === 0" class="mensagem-aviso">
+  <p>Oops! Nenhum vídeo foi encontrado com os filtros selecionados.</p>
+  <img src="assets/gatinho-tangled.svg" alt="imagem-erro">
+</div>
+
+<div class="cards-grid">
+    <app-cards></app-cards>
+    <app-cards></app-cards>
+    <app-cards></app-cards>
+    <app-cards></app-cards>
+    <app-cards></app-cards>
+    <app-cards></app-cards>
+</div>
+
+<app-footer></app-footer>

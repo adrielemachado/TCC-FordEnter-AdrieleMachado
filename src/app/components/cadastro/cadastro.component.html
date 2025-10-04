@@ -1,0 +1,93 @@
+<header class="logo-cadastro">
+        <a href="/Login/login.html"><img src="/assets/logo=aplicação=white.svg" alt="Logo na cor branca"></a>
+        <!--Background-color:#73509E-->
+        <div class="cabecalho">
+            <h1 class="titulo">Crie sua conta</h1>
+            <p class="subtitulo">Vamos começar sua jornada criativa!</p>
+        </div>
+    </header>
+
+    
+    <main>
+        
+        <section class="sobre">
+            <h1>Sobre Você</h1>
+
+            <div class="cadastro">
+                <div class="nome">
+                    <form>
+                        <label for="nome_completo">Nome</label>
+                        <input type="text" id="nome_completo">
+                    </form>
+                </div>
+
+                <div class="nascimento">
+                    <form>
+                        <label for="birthday">Data de nascimento</label>
+                        <input type="date" id="nascimento">
+                    </form>
+                </div>
+
+                <div class="email">
+                    <form action="#">
+                        <label for="e-mail">E-mail</label>
+                        <input type="email" id="e-mail" pattern=".+@example\.com">
+                    </form>
+                </div>
+
+                <div class="password">
+                    <form action="#">
+                        <label for="senha">Senha</label>
+                        <input type="text" id="password">
+                    </form>
+                    <div class="caractere">
+                        <ul class="caractere">
+                            <li>Pelo menos 1 tipo de caractere especial ("&#64;"!_#&);</li>
+                            <li>Pelo menos 1 letra maíuscula;</li>
+                            <li>Pelo menos 1 número;</li>
+                            <li>No mínimo 6 caracteres;</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interesses">
+            <div class="choices">
+                <h1>Seus interesses</h1>
+                <p>Escolha apenas <strong>uma</strong> área que deseja aprender:</p>
+            </div>
+
+            
+            <div class="btn_choices">
+                <input type="radio" class="btn_choices croche">Crochê
+                <input type="radio" class="btn_choices tricot">Tricô
+                <input type="radio" class="btn_choices amigurumi">Amigurumi
+                <input type="radio" class="btn_choices bordado">Macramê
+            </div>
+            <div class="nivel">
+                <h1>Nível de Conhecimento</h1>
+                
+                <div class="btn_experiencia">
+                    <button type="button" class="btn_experiencia iniciante">Iniciante</button>
+                    <button type="button" class="btn_experiencia intermediario">Intermediário</button>
+                    <button type="button" class="btn_experiencia avancado">Avançado</button>
+                </div>
+            </div>
+            <fieldset disabled="disabled">
+                <div class="lgpd">
+                    <input type="checkbox" id="lgpd">
+                    <Label for="LGPD">Li e concordo com os termos de privacidade.</Label>
+                </div>
+            
+                <div class="mkt">
+                    <input type="checkbox" id="mkt" value="yes">
+                    <label for="mkt">Sim, quero receber um fio de inspiração com novos conteúdos em meu e-mail.</label>
+                </div>
+            </fieldset>
+        </section>
+</main>
+<div class="btn_continue">
+    <button type="submit">Continuar</button>
+
+<!-- <app-footer-login></app-footer-login> -->

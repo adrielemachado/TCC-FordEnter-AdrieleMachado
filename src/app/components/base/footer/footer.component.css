@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+footer {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    /* margin-top: 400px; */
+}
+
+.termos_LGPD {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    align-items: center;
+    background: #FFF;
+}
+
+ul {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: normal;
+    list-style: none;
+    color: #421D6F;
+}
+
+
+.logo-footer {
+    display: flex;
+    width: 200px;
+    height: 50px;  
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.icon-footer {
+    padding-right: 4rem;
+    align-items: center;
+}
+

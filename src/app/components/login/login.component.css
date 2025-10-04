@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=IBM+Plex+Sans:ital,wdth,wght@0,75..100,100..700;1,75..100,100..700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+
+    background-color: #F0ECF5;
+    font-family: 'IBM Plex Sans', sans-serif;
+
+}
+
+
+main {
+    background-color: #F0ECF5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 950px;
+    /* O container nunca vai passar de 950px de largura */
+    width: 90%;
+    flex-grow: 1;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-login {
+    /* border: 0.5px solid; */
+    border-radius: 15px;
+    width: 380px;
+    align-items: center;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.10);
+}
+
+.logo-color {
+    width: 250px;
+    height: auto;
+    padding-bottom: 30px;
+
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.usuario form {
+    display: flex;
+    gap: 5px;
+    /* background-color: brown; */
+    color: #421D6F;
+    /* padding: 8px; */
+    flex-direction: column;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.senha form {
+    display: flex;
+    gap: 5px;
+    /* background-color: rgb(235, 94, 94); */
+    color: #421D6F;
+    /* padding: 16px; */
+    flex-direction: column;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+
+}
+
+.senha p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+input {
+    width: auto;
+    height: 30px;
+}
+
+
+.social-icon {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 40px;
+    padding: 30px;
+}
+
+.icone_google {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.google-color,
+.facebook-color {
+    width: 25px;
+}
+
+.entreGoogle,
+.entreFacebook {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.icone_facebook {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+.btnEntrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+button {
+    width: 120px;
+    height: 46px;
+    background-color: #421D6F;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: white;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+}
+
+.account {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    padding-bottom: 10px;
+}
+
+.account a {
+    color: #421D6F;
+    font-weight: 500;
+}
+
+.ilustracao img {
+    width: 400px;
+}

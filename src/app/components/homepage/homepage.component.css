@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+.homepage {
+    background-color: rgba(240, 236, 245, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 16px;
+}
+
+/* Título principal */
+.titulo-main h1, .tutoriais h1 {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Baloo Bhai 2', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    padding-top: 20px;
+}
+
+.titulo-main p, .tutoriais p {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+
+}
+
+/* Cards de entrada */
+.entrance {
+    display: flex;
+    gap: 30px;
+}
+
+.explorar, .atelie {
+    display: flex;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 12.9px 1px rgba(0, 0, 0, 0.10);
+    padding: 20px;
+    align-items: center;
+    gap: 18px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.explorar h2, .atelie h2{
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.explorar small, .atelie small{
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-size: 300;
+    font-size: small;
+}
+
+.explorar img,.atelie img {
+    width: 45px;
+    aspect-ratio: 1/1;
+}
+
+
+/*Seção Tutoriais*/
+.iniciante {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartoes {
+    display: flex;
+    justify-content: flex-start; /*alinha na horizontal*/
+    gap: 36px;
+}
+
+/* Learn More */
+.learn {
+    display: flex;
+    padding: 18px;
+    width: 600px;
+    height: 150px;
+    align-items: center;
+    gap: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2.337px 15.074px 1.169px rgba(0, 0, 0, 0.10);
+    
+}
+
+.macrame {
+    padding-bottom: 20px;
+}
+
+.macrame h2 {
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.macrame small {
+    font-family: 'IBM Plex Sans',sans-serif;
+    font-weight: 400;
+    font-size: small;
+}
+
+.macrame img {
+    border: 1px solid;
+    background-color: blue;
+    width: 190px;
+    height: 105px;
+    border-radius: 7px;
+}
+
+.aprender {
+    width: 120px;
+    height: 35px;
+}
