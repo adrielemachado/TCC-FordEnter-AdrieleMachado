@@ -12,7 +12,7 @@ export const routes: Routes = [
     {path:'cadastro',component:CadastroComponent},
     {path:'inicio',component:HomepageComponent},
     {path:'aulas-tutoriais',component:AulasComponent},
+    { path: 'assistir-video/:videoId', component:VideosComponent},
     // Criar rota para a navegação entre a página de pesquisa e a página do vídeo (clicar no card)
-    {path:'video',component:VideosComponent},
     {path:'meu-atelie',component:AtelieComponent}
 ];

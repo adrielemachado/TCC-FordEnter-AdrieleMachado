@@ -26,7 +26,6 @@ p {
     background-color: #f3f0f7;
     display: flex;
     justify-content: center;
-    padding: 15px;
     align-items: center;
     gap: 1.5rem;
     padding: 1.5rem 0;
@@ -65,8 +64,7 @@ select.filtro-campo {
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -75,4 +73,27 @@ select.filtro-campo {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+}
+
+.imagem-aviso {
+display: flex;
+flex-direction: column;
+}
+
+.botao-reset {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(66, 29, 111, 1);
+  background-color: transparent;
+  color: rgba(66, 29, 111, 1);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.botao-reset:hover {
+  background-color: rgba(66, 29, 111, 1);
+  color: #ffffff;
 }

@@ -16,7 +16,6 @@
   <select name="tecnicas" id="tecnicas" class="filtro-campo" [(ngModel)]="filtros.tecnica" (ngModelChange)="aplicarFiltros()">
     <option value="Técnicas" disabled>Técnicas</option>
     <option value="Crochê">Crochê</option>
-    <option value="Tricô">Tricô</option>
     <option value="Macramê">Macramê</option>
     <option value="Amigurumi">Amigurumi</option>
   </select>
@@ -25,20 +24,29 @@
     <option value="Categorias" disabled>Categorias</option>
     <option value="Vestuário">Vestuário</option>
     <option value="Amigurumi">Amigurumi</option>
-    <option value="Jogo Americano">Jogo Americano e Sousplat</option>
     <option value="Decoração">Decoração</option>
   </select>
-</div>
-<!-- O aviso com a imagem só aparecerá quando NÃO houver nenhum relacionado -->
-<div *ngIf="videosFiltrados.length === 0" class="mensagem-aviso">
-  <p>Oops! Nenhum vídeo foi encontrado com os filtros selecionados.</p>
-  <img src="assets/gatinho-tangled.svg" alt="imagem-erro">
+
+  <button (click)="resetarFiltros()" class="botao-reset">
+    Limpar filtros
+  </button>
 </div>
 
-<div class="cards-grid">
-    <app-cards></app-cards>
-    <app-cards></app-cards>
-    <app-cards></app-cards>
+<!-- Mensagem para o usuário (ex: "selecione os 3 filtros") -->
+<div *ngIf="mensagemFiltro && videosFiltrados.length > 0" class="mensagem-aviso">
+  <p>{{ mensagemFiltro }}</p>
 </div>
+
+<!-- O aviso com a imagem só aparecerá quando NÃO houver nenhum relacionado -->
+<div *ngIf="videosFiltrados.length > 0; else semResultados" class="cards-grid">
+  <app-cards *ngFor="let video of videosFiltrados" [videoData]="video"></app-cards>
+</div>
+
+<ng-template #semResultados>
+  <div class="mensagem-aviso">
+    <p>{{ mensagemFiltro || 'Oops! Nenhum vídeo foi encontrado com os filtros selecionados.' }}</p>
+    <img src="assets/gatinho-tangled.svg" alt="Gatinho enrolado em fios de lã">
+  </div>
+</ng-template>
 
 <app-footer></app-footer>

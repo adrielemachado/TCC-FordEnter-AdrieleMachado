@@ -1,5 +1,6 @@
 .video-insert {
     display: flex;
+    flex-direction: column;
     width: 768px;
     height: 432px;
     aspect-ratio: 1/1;
@@ -10,13 +11,6 @@
     justify-content: center;
 }
 
-
-
-.titulo-chamada {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 
 h1 {

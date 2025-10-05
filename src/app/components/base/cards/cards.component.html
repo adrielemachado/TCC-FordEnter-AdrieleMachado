@@ -1,29 +1,23 @@
-<!-- From Uiverse.io by Yaya12085 --> 
 <div class="card">
- <div class="image">
-    <img src="https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg" alt="thumbnail">
- </div>
+  <div class="image">
+      <img [src]="'https://img.youtube.com/vi/' + videoData.videoId + '/mqdefault.jpg'" [alt]="videoData.titulo">
+  </div>
   <div class="content">
-
-    <div class="aula">
-      <h5 class="title">
-        Nome do vídeo
-      </h5>
-    </div>
-      
-    <div class="tag">
-      <span class="level">
-        Iniciante
+    <a [routerLink]="['/assistir-video', videoData.videoId]">
+      <span class="title">
+        {{ videoData.titulo }}
       </span>
+    </a>
+
+    <div class="tags">
+      <span class="level">{{ videoData.dificuldade }}</span>
     </div>
 
-    <div class="assistir">
-      <a class="action" href="#">
-        Começar aula
-        <span aria-hidden="true">
-          →
-        </span>
-      </a>
-    </div>
+    <a class="action" [routerLink]="['/assistir-video', videoData.videoId]">
+      Assistir agora
+      <span aria-hidden="true">
+        →
+      </span>
+    </a>
   </div>
 </div>

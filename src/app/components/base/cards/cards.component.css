@@ -1,63 +1,104 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=IBM+Plex+Sans:ital,wght@0,500;1,500&display=swap');
 
+/* Estilos para o novo layout do card */
 .card {
-  width: 350px;
-  border-radius: 0.5rem;
-  background-color: #ffffff;
-  box-shadow: 0 2px 12.9px 1px rgba(0, 0, 0, 0.10);
-  border: 1px solid transparent;
-}
-
-.card a {
-  text-decoration: none
-}
-
-.content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1.1rem;
-  gap: 0.7rem;
+  width: 100%;
+  max-width: 320px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Container da imagem */
 .image {
-  object-fit: cover;
   width: 100%;
-  height: 150px;
-  display: block;
-  background-color: rgb(63, 6, 90);
+  height: 180px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cobre a área sem distorcer a imagem */
+}
+
+/* Seção de conteúdo */
+.content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Permite que o conteúdo preencha o espaço */
+  gap: 0.5rem; /* Gap entre título e tag */
+}
+
+/* Estilos do título */
+.content a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .title {
   font-family: 'Baloo Bhai 2', sans-serif;
-  color: #111827;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita o título a 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
 }
 
+.content a:hover .title {
+  color: rgba(66, 29, 111, 1); /* Cor roxa no hover */
+}
+
+/* Container das Tags */
+.tags {
+  margin-top: 0.5rem;
+}
+
+/* Estilo da Tag de Nível */
 .level {
-  font-family: 'IBM Plex Sans',sans-serif;
-  background-color: #dab1f1;
-  width: auto;
-  padding: 0.4rem;
-  color: #440857;
-  border-radius: 0.82rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #f3e8f8; /* Roxo bem claro */
+  color: #440857; /* Roxo escuro */
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
+/* Estilos do link de ação */
 .action {
-  color: rgb(63, 6, 90);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 500;
-  padding-left: 66%;
+  color: rgba(66, 29, 111, 1);
+  align-self: flex-end; /* Alinha à direita */
+  margin-top: auto; /* Empurra para o final do card */
 }
 
 .action span {
-  transition: .3s ease;
+  transition: transform 0.2s ease-in-out;
 }
 
 .action:hover span {
