@@ -1,12 +1,21 @@
 <header class="home">
-    <a routerLink="/inicio"><img class="logotipo" src="assets/logo-svg.svg" alt="Logo"></a>
-    <nav class="menu">
-            <ul>
+    <img class="logotipo" src="assets/logo-svg.svg" alt="Logo">
+    <nav class="menu" [ngClass]="{'menu-hamb': menuHamb}">
+        <ul>
+            <div class="itens">
                 <li><a routerLink="/aulas-tutoriais">Aulas e Tutoriais</a></li>
-                <li>Comunidade</li>
+                <li class="comunidade">Comunidade</li>
                 <li><a routerLink="/meu-atelie"></a>Meu Ateliê Virtual</li>
-            </ul>
-        </nav>
-        <img class="icon-user" src="assets/user-icon.png" alt="Icone do Usuário">
-</header>
+            </div>
+        </ul>
+    </nav>
 
+    <div class="header-right">
+        <img class="icon-user" src="assets/user-icon.png" alt="Icone do Usuário">
+        <button class="hamburguer" (click)="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+</svg>
+        </button>
+    </div>
+</header>

@@ -12,6 +12,8 @@ export interface Pesquisa {
   dificuldade: 'Iniciante' | 'Intermediário' | 'Avançado';
   tecnica: 'Crochê' | 'Tricô' | 'Macramê' | 'Amigurumi';
   categoria: 'Vestuário' | 'Amigurumi' | 'Decoração' | 'Jogo Americano';
+  channelName: string;
+  channelUrl: string;
 }
 
 
@@ -23,10 +25,37 @@ export interface Pesquisa {
 })
 export class AulasComponent  implements OnInit{
 
-todosOsVideos: Pesquisa[] = [
-    { id: 1, titulo: 'Como fazer correntinhas', videoId: 'n6KzkqUiHRo', dificuldade: 'Iniciante', tecnica: 'Crochê', categoria: 'Vestuário' },
-    { id: 2, titulo: 'Bolsa de Macramê Fácil', videoId: 'exemplo_id_2', dificuldade: 'Iniciante', tecnica: 'Macramê', categoria: 'Decoração' },
-    { id: 3, titulo: 'Polvo de Amigurumi', videoId: 'exemplo_id_3', dificuldade: 'Intermediário', tecnica: 'Amigurumi', categoria: 'Amigurumi' },
+todosOsVideos: Pesquisa[] = [ //array mock
+    {
+      id: 1,
+      titulo: 'Como fazer correntinhas',
+      videoId: 'n6KzkqUiHRo',
+      dificuldade: 'Iniciante',
+      tecnica: 'Crochê',
+      categoria: 'Vestuário',
+      channelName: 'Canal ABC',
+      channelUrl: 'https://youtube.com/canalabc'
+    },
+    {
+      id: 2,
+      titulo: 'Bolsa de Macramê Fácil',
+      videoId: 'exemplo_id_2',
+      dificuldade: 'Iniciante',
+      tecnica: 'Macramê',
+      categoria: 'Decoração',
+      channelName: 'Canal XYZ',
+      channelUrl: 'https://youtube.com/canalxyz'
+    },
+    {
+      id: 3,
+      titulo: 'Polvo de Amigurumi',
+      videoId: 'exemplo_id_3',
+      dificuldade: 'Intermediário',
+      tecnica: 'Amigurumi',
+      categoria: 'Amigurumi',
+      channelName: 'Canal 123',
+      channelUrl: 'https://youtube.com/canal123'
+    }
     // ... adicione todos os seus outros vídeos aqui
   ];
 
