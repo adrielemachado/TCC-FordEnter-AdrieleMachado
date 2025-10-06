@@ -4,28 +4,36 @@
     background-color: rgba(240, 236, 245, 1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 60px;
+    gap: clamp(40px, 6vw, 100px); /* Espaçamento vertical responsivo */
     padding: 16px;
 }
 
 /* Título principal */
-.titulo-main h1, .tutoriais h1 {
+.titulo-main,
+.tutoriais {
     display: flex;
     flex-direction: column;
-    font-family: 'Baloo Bhai 2', sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    padding-top: 20px;
+    align-items: center;
 }
 
-.titulo-main p, .tutoriais p {
+.titulo-main h1,
+.tutoriais h1 {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    font-weight: 700;
+    padding-top: 20px;
+    font-family: 'Baloo Bhai 2', sans-serif;
+    font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+    color: rgba(66, 29, 111, 1);
+}
+
+.titulo-main p,
+.tutoriais p {
+    display: flex;
+    flex-direction: column;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: clamp(1rem, 0.8rem + 0.5vw, 1.25rem);
 
 }
 
@@ -33,9 +41,12 @@
 .entrance {
     display: flex;
     gap: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
-.explorar, .atelie {
+.explorar,
+.atelie {
     display: flex;
     background-color: white;
     border-radius: 6px;
@@ -50,23 +61,32 @@
     flex-direction: column;
 }
 
-.explorar h2, .atelie h2{
-    font-family: 'IBM Plex Sans',sans-serif;
+.explorar h2,
+.atelie h2 {
+    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
     font-size: 22px;
 }
 
-.explorar small, .atelie small{
-    font-family: 'IBM Plex Sans',sans-serif;
+.explorar small,
+.atelie small {
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 300;
     font-size: small;
 }
 
-.explorar img,.atelie img {
+.explorar img,
+.atelie img {
     width: 45px;
     aspect-ratio: 1/1;
 }
 
+/* Container principal do conteúdo */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 6vw, 100px); /* Espaçamento vertical responsivo */
+}
 
 /*Seção Tutoriais*/
 .iniciante {
@@ -74,49 +94,113 @@
     flex-direction: column;
 }
 
-.cartoes {
-    display: flex;
-    justify-content: flex-start; /*alinha na horizontal*/
-    gap: 36px;
+.cards-grid {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .entrance {
+        flex-direction: column;
+    }
+
+    .cards-grid {
+        justify-items: center;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 /* Learn More */
-.learn {
-    display: flex;
-    padding: 18px;
-    align-items: center;
-    gap: 30px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2.337px 15.074px 1.169px rgba(0, 0, 0, 0.10);
-    
-}
+/* --- ESTILOS PARA A SEÇÃO MACRAMÊ --- */
 
 .macrame {
-    padding-bottom: 20px;
+  /* Adiciona um espaço generoso acima e abaixo da seção */
+  padding: 4rem 0;
 }
 
-.macrame h2 {
-    font-family: 'IBM Plex Sans',sans-serif;
-    font-weight: 500;
-    font-size: 22px;
+/* O card principal */
+.learn {
+  display: flex;
+  align-items: center; /* Alinha a imagem e o bloco de texto verticalmente */
+  gap: 2rem; /* Espaço entre a imagem e o texto */
+  
+  background-color: white;
+  padding: 1.5rem; /* Um pouco mais de preenchimento interno */
+  border-radius: 16px; /* Bordas mais arredondadas como no design */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
 }
 
-.macrame small {
-    font-family: 'IBM Plex Sans',sans-serif;
-    font-weight: 400;
-    font-size: small;
+/* O contêiner do bloco de texto */
+.description {
+  display: flex;
+  flex-direction: column; /* Empilha o título, parágrafo e botão */
+  justify-content: center;
+  gap: 1rem; /* Espaço entre os textos e o botão */
 }
 
 .macrame img {
-    object-fit: cover;
-    width: 297px;
-    height: 211px;
-    aspect-ratio: 1/1;
-    border-radius: 7px;
+  width: 15%; /* Faz a imagem ocupar 40% da largura do card */
+  height: auto; /* A altura se ajusta para manter a proporção */
+  object-fit: cover;
+  border-radius: 4px;
+  /* aspect-ratio: 1/1 foi removido pois a imagem não é quadrada */
 }
 
+/* Estilos de texto */
+.macrame h2 {
+  font-family: 'Baloo Bhai 2', sans-serif; /* Fonte de título para consistência */
+  font-weight: 600; /* Um pouco mais de peso */
+  font-size: 1.75rem; /* ~28px */
+  color: #333;
+}
+
+.macrame p { /* Alterado de 'small' para 'p' */
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1rem; /* ~16px */
+  line-height: 1.6; /* Melhora a legibilidade */
+  color: #555;
+}
+
+/* Estilo completo do botão */
 .aprender {
-    width: 120px;
-    height: 35px;
+  width: 180px; /* Um pouco mais largo */
+  height: 45px;
+  background-color: #421D6F; /* Cor roxa principal */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.aprender:hover {
+  transform: scale(1.05); /* Efeito de crescimento sutil */
+}
+
+
+/* --- A MÁGICA DA RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  
+  /* Em telas menores, o card muda para o layout de coluna */
+  .learn {
+    flex-direction: column;
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .description {
+    align-items: center; /* Centraliza o botão */
+  }
+  
+  /* A imagem agora ocupa a largura total do card */
+  .macrame img {
+    width: 100%;
+    height: 200px; /* Altura fixa no mobile para não ficar muito grande */
+  }
 }

@@ -1,58 +1,61 @@
 <app-header></app-header>
 <div class="homepage">
 
-        <div class="titulo-main">
-            <h1>Olá, Usuário! Bem-vinda ao Amor em Fios.</h1>
-            <p>Estamos muito felizes em ter você aqui. Que tal começar sua jornada criativa?</p>
-        </div>
-    
-        <!-- Cards de entrada -->
-        <section class="entrance">
-            <a routerLink="/aulas-tutoriais"><div class="explorar">
+
+    <div class="titulo-main">
+        <h1>Olá, Usuário! Bem-vinda ao Amor em Fios.</h1>
+        <p>Estamos muito felizes em ter você aqui. Que tal começar sua jornada criativa?</p>
+    </div>
+
+
+
+
+    <!-- Cards de entrada -->
+    <section class="entrance">
+        <a routerLink="/aulas-tutoriais">
+            <div class="explorar">
                 <img src="assets/capelo.png" alt="capelo">
                 <div class="description">
                     <h2>Explore os tutoriais</h2>
                     <small>Comece aprendendo um ponto novo ou encontre um projeto para iniciantes.</small>
                 </div>
-    </div></a>
-            
-    
-            <div class="atelie">
-                <img src="assets/gode.png" alt="gode">
-                <div class="description">
-                    <h2>Conheça seu Ateliê Virtual</h2>
-                    <small>Descubra como organizar seus futuros projetos, materiais e inspirações.</small>
-                </div>
-    
             </div>
-        </section>
-    
+        </a>
 
-    <div class="container">
+
+        <div class="atelie">
+            <img src="assets/gode.png" alt="gode">
+            <div class="description">
+                <h2>Conheça seu Ateliê Virtual</h2>
+                <small>Descubra como organizar seus futuros projetos, materiais e inspirações.</small>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="main-content">
         <section class="iniciante">
             <div class="tutoriais">
                 <h1>Tutoriais para iniciar sua jornada</h1>
                 <p>Selecionamos alguns projetos para quem está começando.</p>
             </div>
-    
-    
-            <!--Cards de tutorial-->
-            <div class="cartoes">
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
+
+
+            <div class="cards-grid">
+                <app-cards *ngFor="let video of videosIniciante" [videoData]="video"></app-cards>
             </div>
         </section>
-        
-    
+
+
         <!-- Card learn new -->
         <section class="macrame">
             <div class="learn">
                 <img src="assets/meg-wagener-vuXTB1lR3AY-macrame.jpg" alt="imagem de macrame">
                 <div class="description">
                     <h2>Seus fios podem virar mais do que Crochê</h2>
-                    <small>Explore o mundo do Macramê e descubra como criar suportes de plantas, painéis de parede e muito
-                        mais com nossos novos guias em vídeo.</small>
+                    <p>Explore o mundo do Macramê e descubra como criar suportes de plantas, painéis de parede e muito
+                        mais com nossos novos guias em vídeo.</p>
                     <button class="aprender">Quero Aprender</button>
                 </div>
             </div>

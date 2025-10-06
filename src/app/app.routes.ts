@@ -7,8 +7,7 @@ import { VideosComponent } from './components/videos/videos.component';
 import { AtelieComponent } from './components/atelie/atelie.component';
 
 export const routes: Routes = [
-    {path:'',component:LoginComponent},
-    {path:'entrar',component:LoginComponent},
+    {path:'',component:LoginComponent}, 
     {path:'cadastro',component:CadastroComponent},
     {path:'inicio',component:HomepageComponent},
     {path:'aulas-tutoriais',component:AulasComponent},
