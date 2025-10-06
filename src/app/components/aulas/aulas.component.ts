@@ -128,7 +128,7 @@ export class AulasComponent implements OnInit {
       );
 
       if (this.videosFiltrados.length === 0) {
-        this.mensagemFiltro = 'Nenhum vídeo encontrado com os filtros selecionados. Tente uma combinação diferente.';
+        this.mensagemFiltro = 'Ops! Nenhum vídeo encontrado com os filtros selecionados. Tente uma combinação diferente.';
       }
     } else {
       // Nenhum filtro selecionado (estado inicial)

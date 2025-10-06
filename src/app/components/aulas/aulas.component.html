@@ -7,21 +7,21 @@
 <div class="filtro">
 
   <select name="dificuldade" id="dificuldade" class="filtro-campo" [(ngModel)]="filtros.dificuldade" (ngModelChange)="aplicarFiltros()">
-    <option value="Dificuldade" disabled>Dificuldade</option>
+    <option value="Dificuldade" hidden>Dificuldade</option>
     <option value="Iniciante">Iniciante</option>
     <option value="Intermediário">Intermediário</option>
     <option value="Avançado">Avançado</option>
   </select>
 
   <select name="tecnicas" id="tecnicas" class="filtro-campo" [(ngModel)]="filtros.tecnica" (ngModelChange)="aplicarFiltros()">
-    <option value="Técnicas" disabled>Técnicas</option>
+    <option value="Técnicas" hidden>Técnicas</option>
     <option value="Crochê">Crochê</option>
     <option value="Macramê">Macramê</option>
     <option value="Amigurumi">Amigurumi</option>
   </select>
 
   <select name="categorias" id="categorias" class="filtro-campo" [(ngModel)]="filtros.categoria" (ngModelChange)="aplicarFiltros()">
-    <option value="Categorias" disabled>Categorias</option>
+    <option value="Categorias" hidden>Categorias</option>
     <option value="Vestuário">Vestuário</option>
     <option value="Amigurumi">Amigurumi</option>
     <option value="Decoração">Decoração</option>
