@@ -1,17 +1,56 @@
-.video-insert {
+
+main .video-insert {
+    /* Estas propriedades alinham o conteúdo DENTRO do seu retângulo (o iframe do vídeo) */
     display: flex;
-    flex-direction: column;
-    width: 768px;
-    height: 432px;
-    aspect-ratio: 1/1;
+    flex-direction: row;
+    align-items: center;       /* Alinha o conteúdo verticalmente ao centro */
+    justify-content: center;   /* Alinha o conteúdo horizontalmente ao centro */
+
+    /* Propriedades de estilo do seu retângulo */
+    width: 960px;
+    height: 460px;
     background-color: brown;
     border-radius: 1rem;
-    margin: 2rem;
+
+    /* A MUDANÇA PRINCIPAL PARA CENTRALIZAR O RETÂNGULO NA PÁGINA */
+    /* Define 2rem de margem no topo/baixo e margens automáticas dos lados */
+    margin: 2rem auto;
+}
+
+.titulo-chamada {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+
+.container-canal {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.card-canal {
+    display: flex;
+    background-color: white;
+    padding: 1rem;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.yt {
+    display: flex;
+    gap: 1rem;   
+}
+
+.thumb {
+    width: 60px;
+    height: 60px;
+    background-color: blue;
+}
 
 h1 {
     font-size: 2rem;

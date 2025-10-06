@@ -13,10 +13,19 @@ h1 {
     color: rgba(66, 29, 111, 1);
 }
 
-p {
+p, .mensagem-aviso {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: clamp(1rem, 0.8rem + 0.5vw, 1.25rem);
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+.mensagem-aviso img {
+  max-width: 50%;
+}
+
+.mensagem-aviso {
+  padding-bottom: 3.6rem;
 }
 
 .filtro {
@@ -71,6 +80,12 @@ select.filtro-campo {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+}
+
+@media (min-width: 1269px) {
+  .cards-grid {
+      padding: 0% 15%;
+  }
 }
 
 .imagem-aviso {

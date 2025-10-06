@@ -1,34 +1,61 @@
 <app-header></app-header>
+<main>
+    <button class="voltar">
+        <span aria-hidden="true">
+            →
+        </span>
+        Voltar
+    </button>
 
-<div class="titulo-chamada">
     <div class="video-insert">
         <!-- iframe -->
     </div>
 
-    <div class="nome">
-        <h1>Nome do vídeo</h1> <!--corrigir essa linha para importar a rota com o titulo do video-->
-    </div>
-    <button disabled> <!--criar logica para mudar a cor do botão-->
-        <div class="btn-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookmark"
-                viewBox="0 0 16 16">
-                <path
-                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
-            </svg>
+    <div class="titulo-chamada">
+        <div class="nome">
+            <h1>Nome do vídeo</h1> <!--corrigir essa linha para importar a rota com o titulo do video-->
         </div>
-        Salvar em Meu Ateliê
-    </button>
-</div>
-
-<app-cards-channel></app-cards-channel>
-
-<section class="pratica">
-
-    <h2>Continue praticando</h2>
-
-    <div class="cards-grid">
-        <app-cards></app-cards>
-        <app-cards></app-cards>
+        <button disabled> <!--criar logica para mudar a cor do botão-->
+            <div class="btn-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-bookmark" viewBox="0 0 16 16">
+                    <path
+                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                </svg>
+            </div>
+            Salvar em Meu Ateliê
+        </button>
     </div>
-</section>
+
+    <div class="container-canal">
+        <div class="card-canal">
+            <div class="yt">
+                <div class="thumb">
+                    <img src="#" alt="">
+                </div>
+
+                <div class="txt">
+                    <h3>Tutorial criado por:</h3>
+                    <small>Canal ABC</small>
+                </div>
+            </div>
+
+            <div class="btn-view">
+                <button type="submit">Visitar Canal</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pratica">
+
+        <h2>Continue praticando</h2>
+
+        <div class="cards-grid">
+            <app-cards></app-cards>
+            <app-cards></app-cards>
+        </div>
+    </div>
+</main>
+
 <app-footer></app-footer>
