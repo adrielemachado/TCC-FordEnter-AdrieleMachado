@@ -3,11 +3,13 @@ import { HeaderComponent } from '../base/header/header.component';
 import { FooterComponent } from '../base/footer/footer.component';
 import { CardsComponent } from '../base/cards/cards.component';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { VideoTutorial } from '../aulas/aulas.component';
 
 @Component({
   selector: 'app-homepage',
-  imports: [HeaderComponent, FooterComponent, CardsComponent, CommonModule],
+  standalone: true,
+  imports: [HeaderComponent, FooterComponent, CardsComponent, CommonModule, RouterLink],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })

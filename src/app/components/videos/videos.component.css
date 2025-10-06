@@ -1,83 +1,160 @@
-
-main .video-insert {
-    /* Estas propriedades alinham o conteúdo DENTRO do seu retângulo (o iframe do vídeo) */
+.video-play {
     display: flex;
-    flex-direction: row;
-    align-items: center;       /* Alinha o conteúdo verticalmente ao centro */
-    justify-content: center;   /* Alinha o conteúdo horizontalmente ao centro */
-
-    /* Propriedades de estilo do seu retângulo */
-    width: 960px;
-    height: 460px;
-    background-color: brown;
-    border-radius: 1rem;
-
-    /* A MUDANÇA PRINCIPAL PARA CENTRALIZAR O RETÂNGULO NA PÁGINA */
-    /* Define 2rem de margem no topo/baixo e margens automáticas dos lados */
-    margin: 2rem auto;
+    align-items: center;
+    justify-content: center;
 }
+
+.video-wrapper {
+    width: 100%;
+    max-width: 960px;
+    margin: 2rem auto;
+    aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    border: none;
+}
+
 
 .titulo-chamada {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 1rem;
-    padding: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    color: #421D6F;
 }
 
+.nome h2 {
+    font-family: 'Baloo Bhai 2', sans-serif;
+    font-size: 2rem;
+    color: #421D6F;
+}
 
-.container-canal {
+.btn-save {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+    background-color: #421D6F;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.container-canal {
+    max-width: 960px;
+    margin: 0 auto 3rem auto;
+    padding: 0 1rem;
 }
 
 .card-canal {
     display: flex;
-    background-color: white;
-    padding: 1rem;
-    width: 50%;
-    justify-content: space-between;
     align-items: center;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
 }
 
-.yt {
-    display: flex;
-    gap: 1rem;   
+.txt {
+    flex-grow: 1;
 }
 
-.thumb {
-    width: 60px;
-    height: 60px;
-    background-color: blue;
+.txt small {
+    font-size: 0.9rem;
+    color: #615d5d;
+    font-weight: 400;
 }
 
-h1 {
-    font-size: 2rem;
-    color: purple;
+.txt strong {
+    display: block;
+    font-family: 'Baloo Bhai 2', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #421D6F;
 }
 
-button {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.4rem;
+.btn-view a {
+    border: 1px solid #421D6F;
+    color: #421D6F;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
     font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+}
+
+.voltar {
+    margin: 1rem 0 0 1rem;
+    display: inline-block;
+    background-color: #421D6F;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+}
+
+
+.relacionados h3 {
+    font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.relacionados {
+    padding: 0.52rem;
 }
 
 .cards-grid {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 4rem;
     margin-bottom: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1269px) {
     .cards-grid {
+        padding: 0% 15%;
+    }
+}
+
+@media (max-width: 768px) { 
+
+  .titulo-chamada {
+    flex-direction: column;
+    align-items: stretch; 
+    text-align: center;
+  }
+
+  .nome h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 1rem;
+  }
+
+  .card-canal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+   .cards-grid {
         justify-items: center;
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
 }

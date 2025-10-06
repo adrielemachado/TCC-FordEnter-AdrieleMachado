@@ -37,7 +37,7 @@
 
 /* Seção de conteúdo */
 .content {
-  padding: 1.5rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1; /* Permite que o conteúdo preencha o espaço */
@@ -56,7 +56,7 @@
   font-weight: 600;
   color: #333;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limita o título a 2 linhas */
+  line-clamp: 1; /* Limita o título a 2 linhas */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -67,10 +67,6 @@
   color: rgba(66, 29, 111, 1); /* Cor roxa no hover */
 }
 
-/* Container das Tags */
-.tags {
-  margin-top: 0.5rem;
-}
 
 /* Estilo da Tag de Nível */
 .level {
@@ -85,22 +81,3 @@
   letter-spacing: 0.5px;
 }
 
-/* Estilos do link de ação */
-.action {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(66, 29, 111, 1);
-  align-self: flex-end; /* Alinha à direita */
-  margin-top: auto; /* Empurra para o final do card */
-}
-
-.action span {
-  transition: transform 0.2s ease-in-out;
-}
-
-.action:hover span {
-  transform: translateX(4px);
-}
