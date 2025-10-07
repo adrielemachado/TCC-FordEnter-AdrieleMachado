@@ -1,4 +1,16 @@
-# SiteCroche
+# Amor em Fios 🧶
+
+## 📜 Sobre o Projeto
+
+**Amor em Fios** é uma plataforma web desenvolvida como projeto de conclusão do curso de **Desenvolvimento Front-End**, uma iniciativa da **Ford** em parceria com o **SENAI** e a **ONG Rede Cidadã**. O objetivo da plataforma é oferecer um ambiente acolhedor e funcional para entusiastas de crochê e outras artes com fios, disponibilizando videoaulas, tutoriais e um espaço virtual para organizar projetos.
+
+## 👩‍💻 Autora
+
+Projeto desenvolvido por **Adriele Machado Moreira**.
+
+Agradecimentos especiais à **Ford**, **SENAI Cimatec** e **Rede Cidadã** pela oportunidade e pelo conhecimento compartilhado durante o curso.
+
+---
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
 
