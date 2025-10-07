@@ -2,12 +2,12 @@
 
     <div class="titulo-pagina">
         <h1>Meu Ateliê Virtual</h1>
-        <p>Olá, Usuário! Que bom que está de volta. Vamos criar algo incrível hoje?</p>
+        <p>Olá, {{ userName }}! Que bom que está de volta. Vamos criar algo incrível hoje?</p>
     </div>
 
     <div class="caixa-salvos">
 
-        <div class="box-title-icon">
+        <div *ngIf="savedVideos.length === 0" class="empty-atelie-box">
 
             <div class="adicionar">
                 <span class="icone-adc">
@@ -26,6 +26,13 @@
                 <small>Assim que salvar alguma aula ou tutorial, ele aparecerá aqui.</small>
             </div>
 
+        </div>
+
+        <div *ngIf="savedVideos.length > 0" class="saved-video-container">
+            <h2>Vídeos Salvos por Você:</h2>
+            <div class="cards-grid">
+                <app-cards *ngFor="let video of savedVideos" [videoData]="video"></app-cards>
+            </div>
         </div>
 
 

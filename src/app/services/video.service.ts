@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { VideoTutorial } from '../components/aulas/aulas.component';
+import { VideoTutorial } from '../models/video.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class VideoService {
     },
     {
       id: 2,
-      titulo: 'Ponto Baixíssimo',
+      titulo: 'Como Fazer Ponto Baixíssimo',
       videoId: 'zu1g9o2VyYg',
       dificuldade: 'Iniciante',
       tecnica: 'Amigurumi',
@@ -39,7 +39,7 @@ export class VideoService {
     },
     {
       id: 4,
-      titulo: 'Coração de Crochê',
+      titulo: 'Como Fazer Coração de Crochê',
       videoId: 'gQA24NlM4q4',
       dificuldade: 'Iniciante',
       tecnica: 'Amigurumi',
@@ -49,7 +49,7 @@ export class VideoService {
     },
     {
       id: 5,
-      titulo: 'Filtro dos Sonhos',
+      titulo: 'Como Fazer Filtro dos Sonhos',
       videoId: 'OqHikG_cnaY',
       dificuldade: 'Intermediário',
       tecnica: 'Crochê',
@@ -59,7 +59,7 @@ export class VideoService {
     },
     {
       id: 6,
-      titulo: 'Pulseira Zig-Zag',
+      titulo: 'Como Fazer Pulseira Zig-Zag',
       videoId: 'eSPRVEAPrHY',
       dificuldade: 'Iniciante',
       tecnica: 'Macramê',
@@ -69,7 +69,16 @@ export class VideoService {
     },
   ];
 
-  constructor() { }
+  private savedVideos: VideoTutorial[] = [];
+
+  constructor() {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedVideos = localStorage.getItem('savedVideos');
+      if (storedVideos) {
+        this.savedVideos = JSON.parse(storedVideos);
+      }
+    }
+  }
 
   getVideos(): VideoTutorial[] {
     return this.videoteca;
@@ -81,5 +90,25 @@ export class VideoService {
 
   getBeginnerVideos(): VideoTutorial[] {
     return this.videoteca.filter(video => video.id >= 1 && video.id <= 3);
+  }
+
+  saveVideo(video: VideoTutorial) {
+    if (!this.savedVideos.some(v => v.videoId === video.videoId)) {
+      this.savedVideos.push(video);
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem('savedVideos', JSON.stringify(this.savedVideos));
+      }
+    }
+  }
+
+  getSavedVideos(): VideoTutorial[] {
+    return this.savedVideos;
+  }
+
+  removeVideo(videoId: string) {
+    this.savedVideos = this.savedVideos.filter(v => v.videoId !== videoId);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('savedVideos', JSON.stringify(this.savedVideos));
+    }
   }
 }

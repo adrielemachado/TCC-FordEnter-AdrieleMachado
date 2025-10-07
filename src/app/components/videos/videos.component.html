@@ -21,7 +21,7 @@
             <div class="nome">
                 <h1>{{video.titulo}}</h1>
             </div>
-            <button class="btn-save" (click)="toggleSaveState()" [ngClass]="{'saved': isSaved}">
+            <button class="btn-save" (click)="toggleSaveState()" [ngClass]="{'saved': isSaved}" *ngIf="isLoggedIn">
                 <div class="btn-icon" *ngIf="!isSaved">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-bookmark-plus" viewBox="0 0 16 16">

@@ -1,24 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../base/header/header.component';
-import { FooterComponent } from '../base/footer/footer.component';
 import { CardsComponent } from '../base/cards/cards.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
-export interface VideoTutorial {
-  id: number;
-  titulo: string;
-  videoId: string;
-  dificuldade: 'Iniciante' | 'Intermediário' | 'Avançado';
-  tecnica: 'Crochê' | 'Macramê' | 'Amigurumi';
-  categoria: 'Vestuário' | 'Amigurumi' | 'Decoração';
-  channelName: string;
-  channelUrl: string;
-}
+import { VideoTutorial } from '../../models/video.model';
 
 
 @Component({
   selector: 'app-aulas',
+  standalone: true,
   imports: [CardsComponent, FormsModule, CommonModule],
   templateUrl: './aulas.component.html',
   styleUrl: './aulas.component.css'

@@ -13,6 +13,5 @@ export const routes: Routes = [
     {path:'inicio',component:HomepageComponent},
     {path:'aulas-tutoriais',component:AulasComponent},
     { path: 'assistir-video/:videoId', component:VideosComponent},
-    // Criar rota para a navegação entre a página de pesquisa e a página do vídeo (clicar no card)
     {path:'meu-atelie',component:AtelieComponent}
 ];

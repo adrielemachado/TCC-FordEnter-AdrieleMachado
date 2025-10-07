@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input} from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { VideoTutorial } from '../../aulas/aulas.component';
+import { VideoTutorial } from '../../../models/video.model';
 
 @Component({
   selector: 'app-cards',

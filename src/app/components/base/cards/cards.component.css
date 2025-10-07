@@ -12,6 +12,11 @@
   overflow: hidden;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   font-family: 'IBM Plex Sans', sans-serif;
+  margin-bottom: 1.5rem; /* Add spacing between stacked cards */
+}
+
+.card:last-child {
+  margin-bottom: 0; /* No margin for the last card */
 }
 
 .card:hover {

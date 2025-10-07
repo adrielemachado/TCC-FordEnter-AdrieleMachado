@@ -48,6 +48,20 @@
 }
 
 .caixa-salvos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%; /* Take full width */
+    max-width: 600px; /* Max width for larger screens */
+    height: auto;
+    gap: 2rem; /* Adjusted gap */
+    padding: 2rem; /* Adjusted padding */
+    margin-bottom: 1rem;
+}
+
+.empty-atelie-box {
     border-radius: 1rem;
     border: 1.5px dashed #421D6F;
     display: flex;
@@ -55,39 +69,100 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 600px;
+    width: 100%;
     height: auto;
-    gap: 4rem;
-    padding: 4rem;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.saved-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.saved-video-container h2 {
+    font-family: 'Baloo Bhai 2', sans-serif;
+    font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
+    color: #421D6F;
     margin-bottom: 1rem;
 }
 
-
-.box-title-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+    justify-items: center;
+    width: 100%;
+    max-width: 960px; /* Limit width for very large screens */
 }
 
-/* Para telas menores (ex: smartphones) */
-/* @media (max-width: 768px) {
-    .titulo h1, .titulo-centro h2 {
-        font-size: 1.2rem;
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .caixa-salvos {
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
 
-    .titulo p, .titulo-centro small {
+    .empty-atelie-box {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .titulo-pagina {
+        margin-bottom: 2rem;
+    }
+
+    .titulo-pagina h1 {
+        font-size: 1.8rem;
+    }
+
+    .titulo-pagina p {
         font-size: 0.9rem;
     }
-} */
 
-/* Para telas maiores (ex: projetores)
-@media (min-width: 1200px) {
-    .titulo h1, .titulo-centro h2 {
-        font-size: 2rem;
+    .caixa-salvos iframe {
+        width: 100%;
+        height: 200px; /* Adjust height for smaller screens */
     }
 
-    .titulo p, .titulo-centro small {
+    .saved-video-container h2 {
         font-size: 1.2rem;
     }
-} */
+
+    .cards-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 1rem;
+    }
+}
+
+/* Responsive adjustments for even smaller screens (e.g., mobile portrait) */
+@media (max-width: 480px) {
+    .caixa-salvos {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .empty-atelie-box {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .titulo-pagina h1 {
+        font-size: 1.5rem;
+    }
+
+    .titulo-pagina p {
+        font-size: 0.8rem;
+    }
+
+    .caixa-salvos iframe {
+        height: 180px;
+    }
+
+    .saved-video-container h2 {
+        font-size: 1rem;
+    }
+}
 

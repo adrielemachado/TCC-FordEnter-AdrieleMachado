@@ -73,4 +73,9 @@ export class AuthService {
   getCurrentUser(): User | null {
     return this.currentUser.value;
   }
+
+  getCurrentUserName(): string {
+    const user = this.currentUser.value;
+    return user && user.nome ? user.nome : 'Usuário';
+  }
 }
