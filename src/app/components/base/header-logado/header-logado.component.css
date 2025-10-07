@@ -38,10 +38,6 @@ ul a {
     text-decoration: none;
 }
 
-.conta:hover a {
-    color: #FFF;
-}
-
 .itens {
     display: flex;
     align-items: center;
@@ -56,9 +52,8 @@ ul a {
     color: #421D6F;
 }
 
-.conta:hover {
-    background-color: #421D6F;
-    color: #FFF;
+li:hover {
+   color: #421D6F;
     font-weight: 600;
     transition: font-weight 0.3s ease-in-out;
     cursor: pointer;

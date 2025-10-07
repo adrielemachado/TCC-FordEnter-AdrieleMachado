@@ -10,7 +10,7 @@ import { VideoService } from '../../services/video.service';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CardsComponent, CommonModule, RouterLink],
+  imports: [CardsComponent, CommonModule, RouterLink],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })

@@ -1,49 +1,52 @@
-<main>
+<div class="login-container">
+    <main>
         <!-- Formulário de Login -->
-         <section class="container-login">
+        <section class="container-login">
             <img class="logo-color" src="/assets/logo-svg.svg" alt="logo-colorida">
-    
-            <div class="formulario">
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formulario">
                 <div class="usuario">
-                    <form action="#">
-                        <label for="login">Usuário</label>
-                        <input type="text" id="login-user" size="40">
-                    </form>
+                    <label for="email">Usuário</label>
+                    <input type="email" id="email" formControlName="email" size="40">
                 </div>
-        
+
                 <div class="senha">
-                    <form action="#">
-                        <label for="senha">Senha</label>
-                        <input type="text" id="senha" size="10">
-                        <p>Esqueci minha senha</p>
-                    </form>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" formControlName="password" size="10">
+                    <p>Esqueci minha senha</p>
                 </div>
-            </div>
-    
+
+                <div *ngIf="loginError" class="error-message">
+                    Usuário ou senha inválidos. Tente novamente.
+                </div>
+
+                <div class="btnEntrar">
+                    <button type="submit" [disabled]="!loginForm.valid">Entrar</button>
+                </div>
+            </form>
+
             <div class="social-icon">
                 <div class="icone_google">
-                    <!-- Icone google SVG -->
-                     <img class="google-color" src="/assets/google-icon 1.png" alt="">
-                    
+                    <img class="google-color" src="/assets/google-icon 1.png" alt="">
                     <span class="entreGoogle">Entre com o Google</span>
                 </div>
-    
+
                 <div class="icone_facebook">
                     <img class="facebook-color" src="/assets/fe_facebook.png" alt="">
-                     
                     <span class="entreFacebook">Entre com o Facebook</span>
                 </div>
             </div>
-    
-            <div class="btnEntrar">
-                <button type="submit" (click)="login()">Entrar</button>
-                <span class="account">Não tem conta? <a href="/Cadastro/cadastro.html"><i>Cadastre-se aqui.</i></a></span>
-            </div>
-         </section>
-    
-         <div class="ilustracao">
-            <img src="/assets/lady-art2.svg" alt="ilustração de uma moça fazendo crochê">
-         </div>
-    </main>
-    <app-footer-login></app-footer-login>
 
+            <div class="account-footer">
+                <span class="account">Não tem conta? <a routerLink="/cadastro"><i>Cadastre-se aqui.</i></a></span>
+            </div>
+        </section>
+
+        <div class="ilustracao">
+            <img src="/assets/lady-art2.svg" alt="ilustração de uma moça fazendo crochê">
+        </div>
+    </main>
+
+    <app-footer></app-footer>
+</div>
+ 

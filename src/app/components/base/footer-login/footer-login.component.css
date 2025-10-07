@@ -11,8 +11,8 @@ footer {
 }
 
 .termos {
-    display: flex;
     list-style: none;
+    font-size: 0.5rem;
     gap: 25px;
 }
 

@@ -6,45 +6,26 @@
     margin: 0;
 }
 
-html,
-body {
-    height: 100%;
-}
-
-body {
+.login-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
-    align-items: center;
-
-    background-color: #F0ECF5;
-    font-family: 'IBM Plex Sans', sans-serif;
-
+    min-height: 100vh;
 }
-
 
 main {
-    background-color: #F0ECF5;
+    flex-grow: 1; /* Faz o conteúdo principal crescer */
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 2rem;
-    max-width: 950px;
-    /* O container nunca vai passar de 950px de largura */
-    width: 90%;
-    flex-grow: 1;
+    align-items: center;
+    gap: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
-
-section {
+.container-login {
     display: flex;
     flex-direction: column;
     padding: 20px;
     align-items: center;
-    justify-content: space-between;
-}
-
-.container-login {
     /* border: 0.5px solid; */
     border-radius: 15px;
     width: 380px;
@@ -66,29 +47,15 @@ section {
     gap: 30px;
 }
 
-.usuario form {
+.usuario,
+.senha {
     display: flex;
     gap: 5px;
-    /* background-color: brown; */
     color: #421D6F;
-    /* padding: 8px; */
     flex-direction: column;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
     font-size: 22px;
-}
-
-.senha form {
-    display: flex;
-    gap: 5px;
-    /* background-color: rgb(235, 94, 94); */
-    color: #421D6F;
-    /* padding: 16px; */
-    flex-direction: column;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 600;
-    font-size: 22px;
-
 }
 
 .senha p {
@@ -153,7 +120,25 @@ button {
     font-size: 20px;
     font-weight: 500;
     border: none;
+    cursor: pointer;
 }
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.error-message {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #D8000C; /* Cor vermelha para erros */
+    background-color: #FFD2D2; /* Fundo vermelho claro */
+    border: 1px solid #D8000C;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1rem;
+}
+
 
 .account {
     font-family: 'IBM Plex Sans', sans-serif;
@@ -168,4 +153,36 @@ button {
 
 .ilustracao img {
     width: 400px;
+}
+
+.footer-login {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .ilustracao {
+    display: none;
+  }
+
+  .container-login {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+    .container-login {
+        width: 55%;
+    }
+
+    .ilustracao {
+        display: none;
+    }
 }

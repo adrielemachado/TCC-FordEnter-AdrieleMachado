@@ -1,14 +1,11 @@
-<app-header></app-header>
+
 <div class="homepage">
 
 
     <div class="titulo-main">
-        <h1>Olá, Usuário! Bem-vinda ao Amor em Fios.</h1>
+        <h1>Seja Bem-vindo ao Amor em Fios.</h1>
         <p>Estamos muito felizes em ter você aqui. Que tal começar sua jornada criativa?</p>
     </div>
-
-
-
 
     <!-- Cards de entrada -->
     <section class="entrance">
@@ -41,7 +38,6 @@
                 <p>Selecionamos alguns projetos para quem está começando.</p>
             </div>
 
-
             <div class="cards-grid">
                 <app-cards *ngFor="let video of videosIniciante" [videoData]="video"></app-cards>
             </div>
@@ -50,4 +46,3 @@
 
     </div>
 </div>
-<app-footer></app-footer>

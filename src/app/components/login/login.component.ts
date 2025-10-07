@@ -1,24 +1,42 @@
 import { Component } from '@angular/core';
-import { FooterLoginComponent } from '../base/footer-login/footer-login.component';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FooterComponent } from '../base/footer/footer.component';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FooterLoginComponent],
+  imports: [FooterComponent, RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  loginForm: FormGroup;
+  loginError: boolean = false;
+
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    });
+  }
 
-  login(): void {
-    // Aqui iria a lógica de validação de usuário e senha
-    this.authService.login();
-    this.router.navigate(['/inicio']);
+  onSubmit(): void {
+    this.loginError = false;
+    if (this.loginForm.valid) {
+      const success = this.authService.login(this.loginForm.value);
+      if (success) {
+        this.router.navigate(['/inicio']);
+      } else {
+        this.loginError = true;
+      }
+    } else {
+        this.loginError = true;
+    }
   }
 }

@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
+  selector: 'app-header-logado',
   imports: [CommonModule, RouterLink],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: './header-logado.component.html',
+  styleUrl: './header-logado.component.css'
 })
-export class HeaderComponent {
-  menuHamb: boolean = false;
+export class HeaderLogadoComponent {
+
+menuHamb: boolean = false;
   isLoggedIn$: Observable<boolean>;
 
   constructor(private authService: AuthService) {
@@ -23,4 +23,11 @@ export class HeaderComponent {
     this.menuHamb = !this.menuHamb;
   }
 
+  logout(): void {
+    this.authService.logout();
+  }
 }
+
+
+
+

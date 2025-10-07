@@ -1,45 +1,28 @@
 <header class="logo-cadastro">
-        <a href="/Login/login.html"><img src="/assets/logo=aplicação=white.svg" alt="Logo na cor branca"></a>
-        <!--Background-color:#73509E-->
-        <div class="cabecalho">
-            <h1 class="titulo">Crie sua conta</h1>
-            <p class="subtitulo">Vamos começar sua jornada criativa!</p>
-        </div>
-    </header>
+    <!-- <img src="/assets/logo=aplicação=white.svg" alt="Logo na cor branca"> -->
+    <h1 class="titulo">Crie sua conta</h1>
+</header>
 
-    
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <main>
-        
         <section class="sobre">
-            <h1>Sobre Você</h1>
-
+            <h2>Sobre Você</h2>
             <div class="cadastro">
                 <div class="nome">
-                    <form>
-                        <label for="nome_completo">Nome</label>
-                        <input type="text" id="nome_completo">
-                    </form>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" formControlName="nome">
                 </div>
-
                 <div class="nascimento">
-                    <form>
-                        <label for="birthday">Data de nascimento</label>
-                        <input type="date" id="nascimento">
-                    </form>
+                    <label for="nascimento">Data de nascimento</label>
+                    <input type="date" id="nascimento" formControlName="nascimento">
                 </div>
-
                 <div class="email">
-                    <form action="#">
-                        <label for="e-mail">E-mail</label>
-                        <input type="email" id="e-mail" pattern=".+@example\.com">
-                    </form>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" formControlName="email">
                 </div>
-
                 <div class="password">
-                    <form action="#">
-                        <label for="senha">Senha</label>
-                        <input type="text" id="password">
-                    </form>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" formControlName="password">
                     <div class="caractere">
                         <ul class="caractere">
                             <li>Pelo menos 1 tipo de caractere especial ("&#64;"!_#&);</li>
@@ -53,41 +36,86 @@
         </section>
 
         <section class="interesses">
-            <div class="choices">
-                <h1>Seus interesses</h1>
+            <section class="choices">
+                <h2>Seus interesses</h2>
                 <p>Escolha apenas <strong>uma</strong> área que deseja aprender:</p>
-            </div>
+                <div class="btn_choices">
+                    <button type="button" class="btn_choices croche">Crochê</button>
+                    <button type="button" class="btn_choices tricot">Tricô</button>
+                    <button type="button" class="btn_choices amigurumi" [class.active]="isAmigurumiSelected"
+                        (click)="toggleAmigurumi()">Amigurumi</button>
+                    <button type="button" class="btn_choices bordado">Macramê</button>
+                </div>
+            </section>
 
-            
-            <div class="btn_choices">
-                <input type="radio" class="btn_choices croche">Crochê
-                <input type="radio" class="btn_choices tricot">Tricô
-                <input type="radio" class="btn_choices amigurumi">Amigurumi
-                <input type="radio" class="btn_choices bordado">Macramê
-            </div>
-            <div class="nivel">
-                <h1>Nível de Conhecimento</h1>
-                
+            <section class="nivel">
+                <h2>Nível de Conhecimento</h2>
                 <div class="btn_experiencia">
-                    <button type="button" class="btn_experiencia iniciante">Iniciante</button>
+                    <button type="button" class="btn_experiencia iniciante" [class.active]="isInicianteSelected"
+                        (click)="toggleIniciante()">Iniciante</button>
                     <button type="button" class="btn_experiencia intermediario">Intermediário</button>
                     <button type="button" class="btn_experiencia avancado">Avançado</button>
                 </div>
-            </div>
-            <fieldset disabled="disabled">
-                <div class="lgpd">
-                    <input type="checkbox" id="lgpd">
-                    <Label for="LGPD">Li e concordo com os termos de privacidade.</Label>
+            </section>
+
+            <fieldset>
+                <div class="lgpd" (click)="openModal()">
+                    <input type="checkbox" id="lgpd" formControlName="lgpd" (click)="$event.stopPropagation()">
+                    <label for="LGPD">Li e concordo com os <a href="#" (click)="$event.preventDefault()">termos de
+                            privacidade.</a></label>
                 </div>
-            
                 <div class="mkt">
                     <input type="checkbox" id="mkt" value="yes">
                     <label for="mkt">Sim, quero receber um fio de inspiração com novos conteúdos em meu e-mail.</label>
                 </div>
             </fieldset>
-        </section>
-</main>
-<div class="btn_continue">
-    <button type="submit">Continuar</button>
 
-<!-- <app-footer-login></app-footer-login> -->
+            <div *ngIf="registrationError" class="error-message">
+                {{ registrationError }}
+            </div>
+        </section>
+    </main>
+
+    <div class="btn_continue">
+        <button type="submit" [disabled]="!registrationForm.valid">Continuar</button>
+    </div>
+</form>
+
+<!-- Estrutura do Modal -->
+<div class="modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <h2>Termos e Condições de Privacidade</h2>
+        <div class="modal-body">
+            <p>Na <strong>Amor em Fios</strong>, sua privacidade e a segurança dos seus dados são muito importantes. Este é um resumo de
+                como usamos as informações que você compartilha ao criar sua conta, de forma simples e transparente,
+                seguindo a Lei Geral de Proteção de Dados (LGPD) do Brasil. </p> 
+                <br>
+                <h4>Que dados coletamos e por quê?</h4>
+                <p>Ao se cadastrar, pedimos algumas informações. Veja para que serve cada uma delas:</p>
+                <p><strong>Seu Nome:</strong> Usamos seu nome para criar uma experiência mais pessoal e amigável. É muito mais legal ser
+                chamado pelo nome, não é?</p>
+                <p><strong>Seu Email e Senha:</strong> São essenciais para criar e proteger sua conta. O email funciona como seu login e é
+                por ele que enviaremos avisos importantes, como a recuperação de senha.</p>
+                <p><strong>Seus Interesses e Nível de Conhecimento:</strong> Saber se você prefere Crochê ou Amigurumi, e se está no nível
+                iniciante ou avançado, nos ajuda a personalizar o conteúdo para você. Assim, podemos sugerir os
+                tutoriais e projetos perfeitos para sua jornada criativa, tornando sua experiência única.</p>
+                    <br>
+                <h4>Seu Controle e Seus Direitos</h4>
+                <p>Você está no controle das suas informações.</p>
+                <p><strong>Comunicações por E-mail:</strong> Nós só enviaremos nossos e-mails com inspirações, dicas e novidades se você
+                marcar a opção para recebê-los. Se mudar de ideia, pode se descadastrar a qualquer momento.</p>
+                <p><strong>Compartilhamento de Dados:</strong> Nós temos um compromisso com você: não vendemos nem compartilhamos seus dados
+                pessoais com outras empresas para fins de marketing.</p>
+                <p><strong>Segurança:</strong> Suas informações são guardadas com segurança em nossa plataforma, usando as melhores práticas
+                de proteção de dados.</p>
+                <p><strong>Seus Direitos:</strong> A LGPD garante que você pode, a qualquer momento, solicitar o acesso, a correção ou a
+                exclusão dos seus dados.</p>
+                <br>
+                <h4>Dúvidas?</h4>
+                <p>Se tiver qualquer dúvida sobre como seus dados são tratados, por favor, fale com a gente pelo e-mail:
+                <strong>privacidade&#64;amoremfios.com.br.</strong></p>
+                <p>Nosso objetivo é criar um espaço seguro, transparente e, acima de tudo, inspirador para você.</p>
+        </div>
+        <button class="btn-fechar" (click)="closeModal()">Fechar</button>
+    </div>
+</div>

@@ -6,45 +6,63 @@
     margin: 0;
 }
 
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Garante que o componente ocupe a tela toda */
+}
 
-
-header {
-    background-color: #7326B5;
-    /*#7326B5*/
-    height: 100%;
-    text-align: center;
+form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz o formulário crescer para preencher o espaço */
+    background-color: #F0ECF5;
 }
 
 main {
-    background-color: #F0ECF5;
-    /*#F0ECF5*/
+    flex-grow: 1; /* Faz a área principal crescer, empurrando o botão para baixo */
     display: flex;
-    gap: 23px;
+    gap: 50px;
     padding: 20px;
     justify-content: center;
+    align-items: flex-start;
+}
+
+main form {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
     align-items:flex-start;
-
+    flex-grow: 1; /* Faz o conteúdo do formulário crescer */
 }
 
-h1 {
-    font-family: 'Baloo Bhai 2', sans-serif;
-    font-size: 30px;
-}
-
-.subtitulo {
-     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-}
-
-.cabecalho {
+/* Transforma o componente inteiro em um container flex para o sticky footer */
+:host {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    background-color: #F0ECF5;
-    border-bottom: 0.5px solid gray ;
-    padding-bottom: 10px;
+    min-height: 100vh;
 }
 
+header {
+    background-color: #421D6F;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+h2 {
+    font-family: 'Baloo Bhai 2', sans-serif;
+    font-size: 1.5rem;
+}
+
+section.choices, section.nivel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
 
 .sobre {
     display: flex;
@@ -60,6 +78,14 @@ h1 {
     color: #421D6F;
 }
 
+
+.nome, .nascimento, .email, .password {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.10rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+}
 .nome form {
     display: flex;
     flex-direction: column;
@@ -97,6 +123,10 @@ h1 {
     gap: 5px;
 }
 
+.caractere {
+    padding-top: 0.4rem;
+}
+
 ul {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 12px;
@@ -122,31 +152,60 @@ input {
     color: #421D6F;
 }
 
-.btn_choices {
-    display: flex;
-    padding: 8px 16px;
-    justify-content: space-between;
-    gap: 22px;
-    align-items: center;
-    border-radius: 25px;
-
-}
-
+.btn_choices,
 .btn_experiencia {
     display: flex;
-    padding: 8px 16px;
-    gap: 22px;
-    align-items: center;
-    border-radius: 25px;
+    gap: 1rem;
 }
+
+.btn_choices button,
+.btn_experiencia button {
+    background-color: transparent;
+    border: 1px solid #421D6F;
+    color: #421D6F;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    outline: none; /* Remove a borda extra no foco */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+}
+
+/* Aplica o cursor de clique apenas nos botões funcionais */
+.btn_choices .amigurumi,
+.btn_experiencia .iniciante {
+    cursor: pointer;
+}
+
+/* Aplica o hover apenas nos botões funcionais */
+.btn_choices .amigurumi:hover,
+.btn_experiencia .iniciante:hover,
+.btn_choices button.active,
+.btn_experiencia button.active {
+    background-color: #421D6F;
+    color: #FFFFFF;
+}
+
+
 
 fieldset {
     display: flex;
     flex-direction: column;
-    justify-items: flex-end;
-    font-family: 'IaBM Plex Sans', sans-serif;
-    font-size: 13px;
+    gap: 1rem; /* Espaço entre as linhas de checkbox */
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
 
+.lgpd, .mkt {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre o checkbox e o texto */
+}
+
+.lgpd label, .mkt label {
+    font-size: 13px;
 }
 
 .btn_continue  button{
@@ -159,10 +218,76 @@ fieldset {
     font-size: 20px;
     font-weight: 500;
     border: none;
+    cursor: pointer;
+}
+
+.btn_continue button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilos do Modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh; /* Altura máxima para o modal */
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+    color: #421D6F;
+}
+
+.modal-body {
+    overflow-y: auto; /* Adiciona scroll se o texto for muito longo */
+    margin-bottom: 1.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+}
+
+.btn-fechar {
+    align-self: flex-end; /* Alinha o botão à direita */
+    padding: 0.5rem 1rem;
+    background-color: #421D6F;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .btn_continue {
     display: flex;
     justify-content: right;
     padding: 20px;
+}
+
+.error-message {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border: 1px solid #D8000C;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1rem;
 }

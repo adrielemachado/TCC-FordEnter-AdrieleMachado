@@ -7,7 +7,7 @@ footer {
   justify-content: space-between; /* Espaça os 3 blocos principais */
   align-items: center;
   background-color: white;
-  padding: 1rem 2rem; /* Espaçamento interno (vertical e horizontal) */
+  padding: 1rem 2rem 0.5rem; /* Espaçamento interno (vertical e horizontal) */
   width: 100%;
   border-top: 1px solid #eee; /* Uma linha sutil no topo é um bom detalhe de UI */
   position: relative;
@@ -15,7 +15,7 @@ footer {
 }
 
 /* Removemos estilos desnecessários das ULs, pois o footer já controla o layout */
-.footer-nav ul, .redes-sociais {
+.footer-nav ul {
   display: flex;
   align-items: center;
   list-style: none;
@@ -24,10 +24,11 @@ footer {
 }
 
 /* Estilo para todos os links do rodapé */
-footer a, li {
+footer a, li, small {
   font-family: "IBM Plex Sans", sans-serif;
   color: #421D6F;
   text-decoration: none;
+  font-size: 1rem;
   list-style: none;
   transition: opacity 0.3s ease;
 }
@@ -48,11 +49,6 @@ footer a:hover {
 .logo-footer {
   width: 120px; /* Um pouco menor para o rodapé */
   height: auto; /* Mantém a proporção */
-}
-
-.redes-sociais img {
-  width: 24px; /* Tamanho padrão para ícones de rede social */
-  height: 24px;
 }
 
 /* --- MEDIA QUERY PARA TELAS MENORES --- */
