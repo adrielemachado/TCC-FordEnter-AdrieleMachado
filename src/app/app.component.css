@@ -1,0 +1,11 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    display: flex; /* Garante que o conteúdo dentro do router-outlet possa crescer */
+    flex-direction: column;
+    flex-grow: 1;
+}

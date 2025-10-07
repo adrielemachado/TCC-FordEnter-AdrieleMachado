@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../base/header/header.component';
-import { FooterComponent } from '../base/footer/footer.component';
-import { CardsComponent } from '../base/cards/cards.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { VideoTutorial } from '../aulas/aulas.component';
 import { VideoService } from '../../services/video.service';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
+import { CardsComponent } from '../base/cards/cards.component';
 
 @Component({
   selector: 'app-homepage',
@@ -16,11 +16,20 @@ import { VideoService } from '../../services/video.service';
 })
 export class HomepageComponent implements OnInit {
   videosIniciante: VideoTutorial[] = [];
+  welcomeMessage: string = '';
+  isUserLoggedIn: boolean = false;
 
-  constructor(private videoService: VideoService) {}
+  constructor(private videoService: VideoService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.videosIniciante = this.videoService.getBeginnerVideos();
+    const currentUser = this.authService.getCurrentUser();
+    if (currentUser) {
+      this.isUserLoggedIn = true;
+      if (currentUser.nome) {
+        const firstName = currentUser.nome.split(' ')[0];
+        this.welcomeMessage = `Olá, ${firstName}! Boas-vindas ao Amor em Fios!`;
+      }
+    }
   }
 }
-

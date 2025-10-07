@@ -28,7 +28,7 @@ footer a, li, small {
   font-family: "IBM Plex Sans", sans-serif;
   color: #421D6F;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   list-style: none;
   transition: opacity 0.3s ease;
 }
@@ -56,25 +56,83 @@ footer a:hover {
 @media (max-width: 768px) {
   
   footer {
-    display: flex;
     flex-direction: column;
-    /* 1. Diminuímos o gap para deixar o footer mais compacto */
-    gap: 1rem; /* Experimente 1rem (16px) ou o valor que você encontrou */
+    gap: 1rem;
   }
 
-  /* Também aplicamos o alinhamento em coluna e gap aos links internos */
   .footer-nav ul, .redes-sociais {
     flex-direction: column;
     gap: 1rem;
-    /* 2. Garantia extra: remove qualquer margem padrão da lista */
     margin: 0;
+    text-align: center;
   }
 }
 
-  /* (Opcional) Se os links de navegação crescerem, você pode empilhá-los também */
-  .footer-nav ul {
+/* Para telas maiores (ex: projetores) */
+@media (min-width: 1200px) {
+    footer {
+        padding: 1.5rem 3rem;
+    }
+
+    footer a, li, small {
+        font-size: 1.1rem;
+    }
+
+    .footer-nav ul {
+        gap: 2.5rem;
+    }
+
+    .logo-footer {
+        width: 140px;
+    }
+}
+
+/* Estilos do Modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1050;
+    display: flex;
     flex-direction: column;
-    gap: 1rem;
-  }
+    max-height: 80vh; /* Altura máxima para o modal */
+}
 
+.modal-content h2 {
+    margin-bottom: 1rem;
+    color: #421D6F;
+}
 
+.modal-body {
+    overflow-y: auto; /* Adiciona scroll se o texto for muito longo */
+    margin-bottom: 1.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+}
+
+.btn-fechar {
+    align-self: flex-end; /* Alinha o botão à direita */
+    padding: 0.5rem 1rem;
+    background-color: #421D6F;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'IBM Plex Sans', sans-serif;
+}

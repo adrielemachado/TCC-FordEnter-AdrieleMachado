@@ -2,20 +2,17 @@
 <header class="home">
     <img class="logotipo" src="assets/logo-svg.svg" alt="Logo">
     <nav class="menu" [ngClass]="{'menu-hamb': menuHamb}">
-        <ul>
-            <div class="itens">
-                <li><a routerLink="/inicio">Página Inicial</a></li>
-                <li><a routerLink="/aulas-tutoriais">Aulas e Tutoriais</a></li>
-                <li class="comunidade">Comunidade</li>
-                <li><a routerLink="/meu-atelie">Meu Ateliê Virtual</a></li>
-            </div>
+        <ul class="itens">
+            <li><a routerLink="/inicio">Página Inicial</a></li>
+            <li><a routerLink="/aulas-tutoriais">Aulas e Tutoriais</a></li>
+            <li><a routerLink="/meu-atelie">Meu Ateliê Virtual</a></li>
         </ul>
     </nav>
 
     <div class="header-right">
         <div *ngIf="!(isLoggedIn$ | async)">
             <a routerLink="/">
-                <img class="icon-user" src="assets/user-icon.png" alt="Icone do Usuário">
+                <img class="icon-user" src="assets/user-icon.png" alt="Ícone do usuário">
             </a>
         </div>
         <div *ngIf="isLoggedIn$ | async">

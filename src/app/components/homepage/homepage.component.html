@@ -3,7 +3,8 @@
 
 
     <div class="titulo-main">
-        <h1>Seja Bem-vindo ao Amor em Fios.</h1>
+        <h1 *ngIf="welcomeMessage">{{ welcomeMessage }}</h1>
+        <h1 *ngIf="!welcomeMessage">Seja Bem-vindo ao Amor em Fios.</h1>
         <p>Estamos muito felizes em ter você aqui. Que tal começar sua jornada criativa?</p>
     </div>
 
@@ -15,19 +16,22 @@
                 <div class="description">
                     <h2>Explore os tutoriais</h2>
                     <small>Comece aprendendo um ponto novo ou encontre um projeto para iniciantes.</small>
+                    <small class="card-cta" *ngIf="!isUserLoggedIn">Acessar aulas e tutoriais</small>
                 </div>
             </div>
         </a>
 
 
-        <div class="atelie">
-            <img src="assets/gode.png" alt="gode">
-            <div class="description">
-                <h2>Conheça seu Ateliê Virtual</h2>
-                <small>Descubra como organizar seus futuros projetos, materiais e inspirações.</small>
+        <a [routerLink]="isUserLoggedIn ? '/meu-atelie' : '/login'">
+            <div class="atelie">
+                <img src="assets/gode.png" alt="gode">
+                <div class="description">
+                    <h2>Conheça seu Ateliê Virtual</h2>
+                    <small>Descubra como organizar seus futuros projetos, materiais e inspirações.</small>
+                    <small class="card-cta" *ngIf="!isUserLoggedIn">Entre em sua conta ou cadastre-se</small>
+                </div>
             </div>
-
-        </div>
+        </a>
     </section>
 
 

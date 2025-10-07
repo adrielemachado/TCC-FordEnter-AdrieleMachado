@@ -28,14 +28,6 @@ main {
     align-items: flex-start;
 }
 
-main form {
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-    align-items:flex-start;
-    flex-grow: 1; /* Faz o conteúdo do formulário crescer */
-}
-
 /* Transforma o componente inteiro em um container flex para o sticky footer */
 :host {
     display: flex;
@@ -79,59 +71,57 @@ section.choices, section.nivel {
 }
 
 
-.nome, .nascimento, .email, .password {
+.nome, .sobrenome, .nascimento, .email, .password {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.10rem;
     font-weight: 500;
     display: flex;
     flex-direction: column;
 }
-.nome form {
+
+.password-wrapper {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    gap: 5px;
+    align-items: center;
 }
 
-.nascimento form {
-    display: flex;
-    flex-direction: column;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    gap: 5px;
+.password-wrapper input {
+    flex-grow: 1;
 }
 
-.email form {
-    display: flex;
-    flex-direction: column;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    gap: 5px;
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    user-select: none;
+    display: flex; /* Usar flex para centralizar o SVG */
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Ocupar a altura do wrapper */
 }
 
-.password form {
-    display: flex;
-    flex-direction: column;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    padding-bottom: 10px;
-    gap: 5px;
+/* Estilo para o SVG que você vai colar */
+.password-toggle-icon svg {
+    width: 16px;  /* Defina a largura do seu ícone */
+    height: 16px; /* Defina a altura do seu ícone */
+    justify-items: center;
 }
 
 .caractere {
     padding-top: 0.4rem;
 }
 
-ul {
+ul.caractere {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 12px;
     font-weight: 400;
     list-style: none;
+    color: #421D6F;
+}
+
+ul.caractere li.requirement-met {
+    font-weight: 500;
+    color: #28a745; /* Verde para indicar sucesso */
 }
 
 input {
@@ -290,4 +280,62 @@ fieldset {
     border-radius: 5px;
     text-align: center;
     margin-top: 1rem;
+}
+
+/* Para telas menores (ex: smartphones) */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .sobre {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .interesses {
+        padding: 10px;
+    }
+
+    .btn_choices,
+    .btn_experiencia {
+        flex-wrap: wrap;
+    }
+
+    input {
+        padding: 10px;
+    }
+
+    .btn_continue {
+        justify-content: center;
+    }
+}
+
+/* Para telas maiores (ex: projetores) */
+@media (min-width: 1200px) {
+    main {
+        gap: 100px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .nome, .nascimento, .email, .password {
+        font-size: 1.2rem;
+    }
+
+    .btn_choices button,
+    .btn_experiencia button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .btn_continue  button{
+        width: 150px;
+        height: 50px;
+        font-size: 22px;
+    }
 }

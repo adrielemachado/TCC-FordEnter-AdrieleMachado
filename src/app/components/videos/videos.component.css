@@ -39,14 +39,22 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: #421D6F;
-    color: white;
-    border: none;
+    color: #421D6F;
+    border: 0.5px solid #421D6F;
     border-radius: 6px;
     padding: 0.75rem 1.5rem;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ESTILOS PARA O BOTÃO QUANDO O VÍDEO FOR SALVO */
+.btn-save.saved {
+    background-color: #421D6F;
+    color: white;
+    border-color: #421D6F;
+
 }
 
 .container-canal {
@@ -110,9 +118,9 @@
 
 .relacionados h2 {
     font-size: 1.75rem;
-  margin-bottom: 1.5rem;
-  padding-left: 2rem;
-  text-align: center;
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    text-align: center;
 }
 
 .relacionados {
@@ -127,35 +135,80 @@
     margin-bottom: 2rem;
 }
 
-@media (min-width: 1269px) {
+@media (min-width: 1200px) {
     .cards-grid {
         padding: 0% 15%;
     }
+
+    .video-wrapper {
+        max-width: 1100px;
+    }
+
+    .nome h2 {
+        font-size: 2.5rem;
+    }
+
+    .txt strong {
+        font-size: 1.8rem;
+    }
+
+    .relacionados h2 {
+        font-size: 2rem;
+    }
 }
 
-@media (max-width: 768px) { 
+@media (min-width: 769px) and (max-width: 1199px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
 
-  .titulo-chamada {
-    flex-direction: column;
-    align-items: stretch; 
-    text-align: center;
-  }
+@media (max-width: 768px) {
 
-  .nome h2 {
-    font-size: 1.5rem; 
-    margin-bottom: 1rem;
-  }
+    .titulo-chamada {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 0.5rem;
+    }
 
-  .card-canal {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-   .cards-grid {
+    .nome h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-canal {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .cards-grid {
         justify-items: center;
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    .video-wrapper {
+        margin: 1rem auto;
+    }
+
+    .btn-save {
+        padding: 0.5rem 1rem;
+    }
+
+    .txt strong {
+        font-size: 1.2rem;
+    }
+
+    .btn-view a {
+        padding: 0.5rem 1rem;
+    }
+
+    .relacionados h2 {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+    }
 }

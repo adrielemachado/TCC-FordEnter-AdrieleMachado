@@ -19,7 +19,7 @@ export interface VideoTutorial {
 
 @Component({
   selector: 'app-aulas',
-  imports: [HeaderComponent, CardsComponent, FooterComponent, FormsModule, CommonModule],
+  imports: [CardsComponent, FormsModule, CommonModule],
   templateUrl: './aulas.component.html',
   styleUrl: './aulas.component.css'
 })

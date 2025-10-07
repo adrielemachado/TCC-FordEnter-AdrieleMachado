@@ -84,9 +84,22 @@ select.filtro-campo {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  .filtro {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
 }
 
-@media (min-width: 1269px) {
+@media (min-width: 769px) and (max-width: 1199px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
   .cards-grid {
     padding: 0% 15%;
   }

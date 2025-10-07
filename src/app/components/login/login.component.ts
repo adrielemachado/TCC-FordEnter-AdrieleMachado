@@ -28,15 +28,22 @@ export class LoginComponent {
 
   onSubmit(): void {
     this.loginError = false;
-    if (this.loginForm.valid) {
-      const success = this.authService.login(this.loginForm.value);
-      if (success) {
-        this.router.navigate(['/inicio']);
-      } else {
-        this.loginError = true;
-      }
-    } else {
-        this.loginError = true;
+    if (this.loginForm.invalid) {
+      this.loginError = true;
+      return;
     }
+
+    const success = this.authService.login(this.loginForm.value);
+    if (success) {
+      this.router.navigate(['/inicio']);
+    } else {
+      this.loginError = true;
+    }
+  }
+
+  showPassword = false;
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

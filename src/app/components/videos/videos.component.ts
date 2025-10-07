@@ -12,7 +12,7 @@ import { HeaderLogadoComponent } from '../base/header-logado/header-logado.compo
 @Component({
   selector: 'app-videos',
   standalone: true,
-  imports: [HeaderComponent, HeaderLogadoComponent, FooterComponent, CardsComponent, CommonModule],
+  imports: [CardsComponent, CommonModule],
   templateUrl: './videos.component.html',
   styleUrl: './videos.component.css'
 })
@@ -21,6 +21,7 @@ export class VideosComponent implements OnInit {
   video: VideoTutorial | undefined;
   videoUrlSegura: SafeResourceUrl | undefined;
   videosRelacionados: VideoTutorial[] = [];
+  isSaved: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +49,11 @@ export class VideosComponent implements OnInit {
         this.router.navigate(['/']);
       }
     });
+  }
+
+  toggleSaveState(): void {
+    this.isSaved = !this.isSaved;
+    // Aqui você pode adicionar a lógica para realmente salvar/remover o vídeo em um serviço
   }
 
   voltar(): void {

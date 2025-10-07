@@ -1,8 +1,12 @@
-<div *ngIf="showLayout">
-    <app-header *ngIf="!(isLoggedIn$ | async)"></app-header>
-    <app-header-logado *ngIf="isLoggedIn$ | async"></app-header-logado>
+<div class="app-container">
+    <div *ngIf="showLayout">
+        <app-header *ngIf="!(isLoggedIn$ | async)"></app-header>
+        <app-header-logado *ngIf="isLoggedIn$ | async"></app-header-logado>
+    </div>
+
+    <main>
+        <router-outlet />
+    </main>
+
+    <app-footer *ngIf="showLayout"></app-footer>
 </div>
-
-<router-outlet />
-
-<app-footer *ngIf="showLayout"></app-footer>

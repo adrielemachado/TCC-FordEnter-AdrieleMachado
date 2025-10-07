@@ -12,8 +12,18 @@
 
                 <div class="senha">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" formControlName="password" size="10">
-                    <p>Esqueci minha senha</p>
+                    <div class="password-wrapper">
+                        <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" size="10">
+                        <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+                            <span *ngIf="!showPassword">
+                                <!-- COLE AQUI O SVG DO ÍCONE 'OLHO ABERTO' (PARA MOSTRAR A SENHA) -->
+                            </span>
+                            <span *ngIf="showPassword">
+                                <!-- COLE AQUI O SVG DO ÍCONE 'OLHO FECHADO' (PARA OCULTAR A SENHA) -->
+                            </span>
+                        </span>
+                    </div>
+                    <a class="forget" href="#">Esqueci minha senha</a>
                 </div>
 
                 <div *ngIf="loginError" class="error-message">
@@ -27,18 +37,18 @@
 
             <div class="social-icon">
                 <div class="icone_google">
-                    <img class="google-color" src="/assets/google-icon 1.png" alt="">
+                    <img class="google-color" src="/assets/google-icon 1.png" alt="Ícone do Google">
                     <span class="entreGoogle">Entre com o Google</span>
                 </div>
 
                 <div class="icone_facebook">
-                    <img class="facebook-color" src="/assets/fe_facebook.png" alt="">
+                    <img class="facebook-color" src="/assets/fe_facebook.png" alt="Ícone do Facebook">
                     <span class="entreFacebook">Entre com o Facebook</span>
                 </div>
             </div>
 
             <div class="account-footer">
-                <span class="account">Não tem conta? <a routerLink="/cadastro"><i>Cadastre-se aqui.</i></a></span>
+                <span class="account">Não tem conta? <a routerLink="/cadastro">Cadastre-se aqui.</a></span>
             </div>
         </section>
 

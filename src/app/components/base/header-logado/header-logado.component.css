@@ -23,7 +23,7 @@ header {
     gap: 1rem;
 }
 
-ul {
+ul.itens {
     display: flex;
     font-family: "IBM Plex Sans", sans-serif;
     font-optical-sizing: auto;
@@ -31,6 +31,7 @@ ul {
     font-size: 1.10rem;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 ul a {
@@ -38,11 +39,6 @@ ul a {
     text-decoration: none;
 }
 
-.itens {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-}
 
 .conta {
     display: flex;
@@ -121,7 +117,7 @@ li:hover {
         box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     }
 
-    .menu.menu-hamb ul {
+    .menu.menu-hamb ul.itens {
         flex-direction: column;
         align-items: flex-start;
         font-size: 1.2rem;
@@ -136,5 +132,24 @@ li:hover {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.4);
         z-index: 999;
+    }
+}
+
+/* Para telas maiores (ex: projetores) */
+@media (min-width: 1200px) {
+    header {
+        padding: 1.5rem 3rem;
+    }
+
+    ul {
+        font-size: 1.2rem;
+    }
+
+    .itens {
+        gap: 5rem;
+    }
+
+    .logotipo {
+        width: 160px;
     }
 }
