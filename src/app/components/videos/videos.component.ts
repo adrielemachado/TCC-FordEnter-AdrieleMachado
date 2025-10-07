@@ -7,11 +7,12 @@ import { CardsComponent } from '../base/cards/cards.component';
 import { VideoTutorial } from '../aulas/aulas.component';
 import { CommonModule, Location } from '@angular/common';
 import { VideoService } from '../../services/video.service';
+import { HeaderLogadoComponent } from '../base/header-logado/header-logado.component';
 
 @Component({
   selector: 'app-videos',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CardsComponent, CommonModule],
+  imports: [HeaderComponent, HeaderLogadoComponent, FooterComponent, CardsComponent, CommonModule],
   templateUrl: './videos.component.html',
   styleUrl: './videos.component.css'
 })

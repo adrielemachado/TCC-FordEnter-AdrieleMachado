@@ -4,9 +4,10 @@ import { HeaderLogadoComponent } from '../base/header-logado/header-logado.compo
 
 @Component({
   selector: 'app-atelie',
-  imports: [FooterComponent,HeaderLogadoComponent],
+  standalone: true,
+  imports: [HeaderLogadoComponent, FooterComponent],
   templateUrl: './atelie.component.html',
-  styleUrl: './atelie.component.css'
+  styleUrls: ['./atelie.component.css']
 })
 export class AtelieComponent {
 

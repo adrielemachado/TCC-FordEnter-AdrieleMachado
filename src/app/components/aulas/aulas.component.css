@@ -20,6 +20,7 @@ p {
 }
 
 .mensagem-aviso img {
+  padding-top: 1rem;
   max-width: 50%;
 }
 

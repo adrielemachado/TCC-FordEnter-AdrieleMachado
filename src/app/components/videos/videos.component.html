@@ -1,11 +1,11 @@
 
 
-<button class="voltar" (click)="voltar()">
+<!-- <button class="voltar" (click)="voltar()">
     <span aria-hidden="true">
         ←
     </span>
     Voltar
-</button>
+</button> -->
 
 <main *ngIf="video" class="container-pai">
 
@@ -49,7 +49,7 @@
 
 
     <section class="relacionados">
-        <h3>Continue praticando</h3>
+        <h2>Continue praticando</h2>
         <div class="cards-grid">
             <app-cards *ngFor="let videoRelacionado of videosRelacionados" [videoData]="videoRelacionado"></app-cards>
         </div>
