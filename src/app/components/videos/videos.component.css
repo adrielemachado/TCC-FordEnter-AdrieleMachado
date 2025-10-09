@@ -38,6 +38,7 @@
 .btn-save {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     color: #421D6F;
     border: 0.5px solid #421D6F;
@@ -168,7 +169,7 @@
 
     .titulo-chamada {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         text-align: center;
         gap: 0.5rem;
     }
