@@ -1,0 +1,59 @@
+<div class="homepage">
+
+
+    <div class="titulo-main">
+        <h1 *ngIf="welcomeMessage">{{ welcomeMessage }}</h1>
+        <h1 *ngIf="!welcomeMessage">Seja Bem-vindo ao Amor em Fios.</h1>
+        <p>Estamos muito felizes em ter você aqui. Que tal começar sua jornada criativa?</p>
+    </div>
+
+    <ng-container *ngIf="(lastWatchedVideo$ | async)">
+        <hr class="section-divider">
+        <div class="container-canal">
+            <app-card-keep-video></app-card-keep-video>
+        </div>
+    </ng-container>
+
+    <!-- Cards de entrada -->
+    <section class="entrance">
+        <a routerLink="/aulas-tutoriais">
+            <div class="explorar">
+                <img src="assets/capelo.png" alt="capelo">
+                <div class="description">
+                    <h2>Explore os tutoriais</h2>
+                    <small>Comece aprendendo um ponto novo ou encontre um projeto para iniciantes.</small>
+                    <small class="card-cta" *ngIf="!isUserLoggedIn">Acessar aulas e tutoriais</small>
+                </div>
+            </div>
+        </a>
+
+
+        <a [routerLink]="isUserLoggedIn ? '/meu-atelie' : '/login'">
+            <div class="atelie">
+                <img src="assets/gode.png" alt="gode">
+                <div class="description">
+                    <h2>Conheça seu Ateliê Virtual</h2>
+                    <small>Descubra como organizar seus futuros projetos, materiais e inspirações.</small>
+                    <small class="card-cta" *ngIf="!isUserLoggedIn">Entre em sua conta ou cadastre-se</small>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <hr class="section-divider">
+
+    <div class="main-content">
+        <section class="iniciante">
+            <div class="tutoriais">
+                <h1>Tutoriais para iniciar sua jornada</h1>
+                <p>Selecionamos alguns projetos para quem está começando.</p>
+            </div>
+
+            <div class="cards-grid">
+                <app-cards *ngFor="let video of videosIniciante" [videoData]="video"></app-cards>
+            </div>
+        </section>
+
+
+    </div>
+</div>

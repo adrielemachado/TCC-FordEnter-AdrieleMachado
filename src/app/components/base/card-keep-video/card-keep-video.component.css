@@ -1,0 +1,52 @@
+
+.container-keep {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    max-width: 700px;
+    padding: 16px 24px;
+    align-items: center;
+    gap: 18px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    box-shadow: 0 2px 12.9px 1px rgba(0, 0, 0, 0.10);
+    border-radius: 6px;
+    
+}
+
+.play {
+    background-color: #421D6F;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    margin-left: 15rem;
+}
+
+.minutagem {
+    color: rgb(153, 152, 152);
+}
+
+.container-img {
+    color: #421D6F;
+}
+
+.trash {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #6c757d; /* A neutral color */
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trash:hover {
+    background-color: #f8f9fa; /* A very light background on hover */
+    color: #dc3545; /* Red color on hover */
+}
