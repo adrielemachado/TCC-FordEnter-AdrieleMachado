@@ -59,7 +59,7 @@ export class CadastroComponent implements OnInit {
     if (this.registrationForm.valid) {
       const success = this.authService.register(this.registrationForm.value);
       if (success) {
-        this.router.navigate(['/inicio']);
+        this.router.navigate(['/welcome']);
       } else {
         this.registrationError = 'Este e-mail já está cadastrado.';
       }

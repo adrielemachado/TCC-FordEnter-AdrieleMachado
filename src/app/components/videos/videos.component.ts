@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FooterComponent } from "../base/footer/footer.component";
@@ -17,7 +17,7 @@ import { HeaderLogadoComponent } from '../base/header-logado/header-logado.compo
   templateUrl: './videos.component.html',
   styleUrl: './videos.component.css'
 })
-export class VideosComponent implements OnInit {
+export class VideosComponent implements OnInit, OnDestroy {
 
   video: VideoTutorial | undefined;
   videoUrlSegura: SafeResourceUrl | undefined;
@@ -60,6 +60,12 @@ export class VideosComponent implements OnInit {
         this.router.navigate(['/']);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.isLoggedIn && this.video) {
+      this.videoService.setLastWatchedVideoId(this.video.videoId);
+    }
   }
 
   toggleSaveState(): void {

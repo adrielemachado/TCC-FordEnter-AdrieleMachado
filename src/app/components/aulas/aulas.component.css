@@ -5,6 +5,10 @@
   flex-direction: column;
   align-items: center;
   padding-top: 1rem;
+  width: 100%;
+  border-bottom: 1px solid #DCD0FF;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 h1 {

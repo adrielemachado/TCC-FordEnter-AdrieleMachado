@@ -35,7 +35,7 @@ export class LoginComponent {
 
     const success = this.authService.login(this.loginForm.value);
     if (success) {
-      this.router.navigate(['/inicio']);
+      this.router.navigate(['/welcome']);
     } else {
       this.loginError = true;
     }

@@ -29,7 +29,7 @@
         </div>
 
         <div *ngIf="savedVideos.length > 0" class="saved-video-container">
-            <h2>Vídeos Salvos por Você:</h2>
+            <h2>Seus vídeos salvos:</h2>
             <div class="cards-grid">
                 <app-cards *ngFor="let video of savedVideos" [videoData]="video"></app-cards>
             </div>

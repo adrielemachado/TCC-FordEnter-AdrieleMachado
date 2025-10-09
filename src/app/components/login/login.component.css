@@ -17,9 +17,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    gap: 5vw; /* Usa unidade relativa à largura da tela */
+    padding: 2rem;
     overflow-y: auto; /* Adiciona scroll interno se necessário */
 }
 .container-login {
@@ -27,10 +26,9 @@ main {
     flex-direction: column;
     padding: 20px;
     align-items: center;
-    /* border: 0.5px solid; */
     border-radius: 15px;
-    width: 380px;
-    align-items: center;
+    width: 90%;
+    max-width: 420px; /* Limite máximo para a largura */
     background-color: #FFFFFF;
     box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.10);
 }
@@ -194,7 +192,9 @@ button:disabled {
 }
 
 .ilustracao img {
-    width: 400px;
+    width: 100%;
+    max-width: 500px; /* Define um limite máximo para a ilustração */
+    height: auto;
 }
 
 .footer-login {
@@ -203,30 +203,7 @@ button:disabled {
     height: auto;
 }
 
-/* Para telas maiores (ex: projetores) */
-@media (min-width: 1200px) {
-    main {
-        gap: 8rem;
-    }
-
-    .container-login {
-        width: 450px;
-    }
-
-    .logo-color {
-        width: 300px;
-    }
-
-    .usuario,
-    .senha {
-        font-size: 24px;
-    }
-
-    .ilustracao img {
-        width: 500px;
-    }
-}
-
+/* Ajustes para telas de tablet e desktops menores */
 @media (max-width: 1024px) {
     main {
         flex-direction: column;
@@ -235,10 +212,74 @@ button:disabled {
     }
 
     .ilustracao {
-        display: none;
+        display: none; /* Oculta a ilustração em telas menores para focar no formulário */
     }
 
     .container-login {
-        width: 55%;
+        width: 80%;
+        max-width: 500px; /* Aumenta um pouco o limite em tablets */
     }
 }
+
+
+/*Para telas menores (mobile simples)*/
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container-login {
+        width: 90%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .container-login > * {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    .logo-color {
+        max-width: 180px;
+        width: 70%;
+        align-self: center;
+    }
+
+    .usuario, .senha {
+        font-size: 1rem;
+        margin: 0.5rem;
+        text-align: left;
+    }
+
+    input[type="email"], input[type="password"] {
+        font-size: 1rem;
+        padding: 0.75rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .account {
+        display: flex;
+        justify-content: center;
+    }
+
+    .icone_facebook {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+
+

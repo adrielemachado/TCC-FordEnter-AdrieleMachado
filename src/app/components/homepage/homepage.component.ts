@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { VideoTutorial } from '../../models/video.model';
 import { VideoService } from '../../services/video.service';
-import { AuthService } from '../../services/auth.service';
-import { User } from '../../models/user.model';
 import { CardsComponent } from '../base/cards/cards.component';
 
 @Component({
@@ -16,20 +14,10 @@ import { CardsComponent } from '../base/cards/cards.component';
 })
 export class HomepageComponent implements OnInit {
   videosIniciante: VideoTutorial[] = [];
-  welcomeMessage: string = '';
-  isUserLoggedIn: boolean = false;
 
-  constructor(private videoService: VideoService, private authService: AuthService) {}
+  constructor(private videoService: VideoService) {}
 
   ngOnInit(): void {
     this.videosIniciante = this.videoService.getBeginnerVideos();
-    const currentUser = this.authService.getCurrentUser();
-    if (currentUser) {
-      this.isUserLoggedIn = true;
-      if (currentUser.nome) {
-        const firstName = currentUser.nome.split(' ')[0];
-        this.welcomeMessage = `Olá, ${firstName}! Boas-vindas ao Amor em Fios!`;
-      }
-    }
   }
 }

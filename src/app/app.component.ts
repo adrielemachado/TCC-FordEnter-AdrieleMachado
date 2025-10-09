@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/base/header/header.component';
@@ -32,6 +32,13 @@ export class AppComponent {
       } else {
         this.showLayout = true;
       }
+
+      // Redireciona para /home se o usuário estiver logado e na página inicial
+      this.isLoggedIn$.pipe(take(1)).subscribe(isLoggedIn => {
+        if (isLoggedIn && event.url === '/') {
+          this.router.navigate(['/welcome']);
+        }
+      });
     });
   }
 }

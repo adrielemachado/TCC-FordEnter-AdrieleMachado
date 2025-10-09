@@ -50,7 +50,6 @@
     gap: 85px;
     align-items: stretch;
     justify-content: center;
-    border-bottom: 0.5px solid rgba(66, 29, 111, 1, 0.5);
     padding: 1rem;
 }
 
@@ -159,4 +158,10 @@
     .atelie h2 {
         font-size: 26px;
     }
+}
+
+.section-divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #DCD0FF;
 }
