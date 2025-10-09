@@ -50,3 +50,49 @@
     background-color: #f8f9fa; /* A very light background on hover */
     color: #dc3545; /* Red color on hover */
 }
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .play {
+        margin-left: 10rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container-keep {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .play {
+        margin-left: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-keep {
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .titulo-video {
+        order: 1;
+    }
+
+    .play {
+        order: 2;
+        margin-left: 0;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .trash {
+        order: 3;
+        margin-top: 0.5rem;
+    }
+
+    .container-img {
+        display: none; /* Ocultar o ícone de play para economizar espaço */
+    }
+}
