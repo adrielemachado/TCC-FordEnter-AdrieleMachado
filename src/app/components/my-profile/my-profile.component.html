@@ -1,0 +1,133 @@
+<div class="my-profile">
+    <div class="titulo-profile">
+        <h1>Meu Perfil</h1>
+        <p>Gerencie seu perfil, suas preferências e sua conta.</p>
+    </div>
+
+     <hr class="section-divider">
+
+     <section class="biografia">
+           <div class="user-pic">
+        <img src="#" alt="imagem de perfil">
+     </div>
+
+     <div class="titulo-imagem">
+        <h2>{{ welcomeMessage }}</h2>
+        <p class="biografia">Apaixonada por fios e cores. Transformo linhas em arte e afeto. Bem-vindo(a) ao meu cantinho!</p>  
+     </div>
+     </section>
+
+     <hr class="section-divider">
+
+     <section class="skills">
+        <div class="habilidades">
+            <h3>Minhas Habilidades:</h3>
+            <span>Crochê</span>
+            <span>Amigurumi</span>
+        </div>
+        
+        <div class="conhecimento">
+            <h3>Nivel de Conhecimento:</h3>
+            <p>Avançado</p>
+        </div>
+
+        <button class="editar-perfil">
+            Editar Perfil
+        </button>
+     </section>
+
+     <!-- MODAL PARA EDITAR PERFIL -->
+
+     <div>
+         <h2 class="titulo-modal">Editar Perfil</h2>
+         <img src="#" alt="imagem de perfil">
+         <button class="change-pic">Alterar Foto</button>
+     </div>
+
+     <div>
+         <form class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" name="Nome-user" id="Nome-user">
+    
+            <label for="biografia">Biografia</label>
+            <textarea name="biografia-edit" id="biografia-edit"></textarea>
+         </form>
+     </div>
+
+
+     <div class="habil">
+         <h3>Habilidades</h3>
+         <form>
+            <input type="checkbox" name="interesses" id="croche">
+            <label for="choices">Crochê</label>
+            <input type="checkbox" name="interesses" id="amigurumi">
+            <label for="choices">Amigurumi</label>
+            <input type="checkbox" name="interesses" id="macrame">
+            <label for="choices">Macramê</label>
+         </form>
+     </div>
+
+     <div class="nivel-conhecimento">
+         <h3>Nivel de conhecimento</h3>
+         <select name="level" id="level">
+            <option value="hard">Avançado</option>
+            <option value="begginner">Inciante</option>
+            <option value="intermediate">Intermediário</option>
+         </select>
+     </div>
+
+
+     <div class="btn-alterar">
+         <button class="cancelar">
+            Cancelar
+         </button>
+    
+         <button class="save-changes">
+            Salvar Alterações
+         </button>
+     </div>
+
+     <!-- FIM DO MODAL EDITAR PERFIL -->
+
+     <hr class="section-divider">
+
+     <section class="configuracoes">
+        <h2>Configurações de Conta</h2>
+
+        <form class="form-group">
+            <div class="contato">
+              <label for="Nome">Nome</label>
+            <input type="text" name="usuario" id="usuario">   
+            </div>
+           
+            <div class="contato">
+             <label for="Email">Email</label>
+            <input type="email" name="email" id="email">   
+            </div>
+        </form>
+
+        <button class="save-changes">
+            Salvar Alterações
+        </button>
+     </section>
+
+     <hr class="section-divider">
+
+     <section class="perigo">
+        <h2>Zona de Perigo</h2>
+
+        <div class="destivar-conta">
+            <h3>Desativar Conta</h3>
+            <small>Sua conta será desativada temporariamente. Seu perfil e dados ficarão ocultos até você reativá-la.</small>
+            <button class="desativar">Desativar Conta</button>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="exluir-conta">
+            <h3>Excluir conta permanentemente</h3>
+            <small>Esta ação é irreversível. Todos os seus dados, incluindo perfil e itens salvos, serão apagados para sempre.</small>
+            <button class="excluir">Excluir Conta</button>
+        </div>
+     </section>
+</div>
