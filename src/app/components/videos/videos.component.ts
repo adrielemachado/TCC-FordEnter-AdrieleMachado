@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FooterComponent } from "../base/footer/footer.component";
-import { HeaderComponent } from '../base/header/header.component';
+
 import { CardsComponent } from '../base/cards/cards.component';
 import { VideoTutorial } from '../../models/video.model';
 import { CommonModule, Location } from '@angular/common';
