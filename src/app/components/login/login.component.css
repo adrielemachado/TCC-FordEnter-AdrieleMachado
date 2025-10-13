@@ -9,17 +9,17 @@
 .login-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh; /* Garante que o container ocupe a altura toda */
+    overflow: hidden; /* Esconde qualquer barra de rolagem */
 }
 
 main {
-    flex-grow: 1; /* Faz o conteúdo principal crescer */
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5vw; /* Usa unidade relativa à largura da tela */
+    gap: 5vw;
     padding: 2rem;
-    overflow-y: auto; /* Adiciona scroll interno se necessário */
 }
 .container-login {
     display: flex;
