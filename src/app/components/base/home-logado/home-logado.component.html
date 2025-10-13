@@ -6,9 +6,18 @@
         <h1 *ngIf="!welcomeMessage">Seja Bem-vindo ao Amor em Fios.</h1>
         <p>Estamos muito felizes em ter você aqui. Que tal começar sua jornada criativa?</p>
     </div>
+    
+    <hr class="section-divider">
+
+    <div class="carousel-container">
+      <div class="carousel-slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlide">
+        <img [src]="slide" alt="Carousel image {{i + 1}}">
+      </div>
+      <button class="prev" (click)="prevSlide()">&#10094;</button>
+      <button class="next" (click)="nextSlide()">&#10095;</button>
+    </div>
 
     <ng-container *ngIf="(lastWatchedVideo$ | async)">
-        <hr class="section-divider">
         <div class="container-canal">
             <app-card-keep-video></app-card-keep-video>
         </div>

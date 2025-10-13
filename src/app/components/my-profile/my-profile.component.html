@@ -37,56 +37,58 @@
      </section>
 
      <!-- MODAL PARA EDITAR PERFIL -->
+     <div class="modal-overlay" *ngIf="isModalOpen" (click)="closeModal()">
+         <div class="modal-content" (click)="$event.stopPropagation()">
+             <div>
+                 <h2 class="titulo-modal">Editar Perfil</h2>
+                 <img src="#" alt="imagem de perfil">
+                 <button class="change-pic">Alterar Foto</button>
+             </div>
 
-     <div>
-         <h2 class="titulo-modal">Editar Perfil</h2>
-         <img src="#" alt="imagem de perfil">
-         <button class="change-pic">Alterar Foto</button>
+             <div>
+                 <form class="form-group">
+                    <label for="Nome">Nome</label>
+                    <input type="text" name="Nome-user" id="Nome-user">
+            
+                    <label for="biografia">Biografia</label>
+                    <textarea name="biografia-edit" id="biografia-edit"></textarea>
+                 </form>
+             </div>
+
+
+             <div class="habil">
+                 <h3>Habilidades</h3>
+                 <form>
+                    <input type="checkbox" name="interesses" id="croche">
+                    <label for="choices">Crochê</label>
+                    <input type="checkbox" name="interesses" id="amigurumi">
+                    <label for="choices">Amigurumi</label>
+                    <input type="checkbox" name="interesses" id="macrame">
+                    <label for="choices">Macramê</label>
+                 </form>
+             </div>
+
+             <div class="nivel-conhecimento">
+                 <h3>Nivel de conhecimento</h3>
+                 <select name="level" id="level">
+                    <option value="hard">Avançado</option>
+                    <option value="begginner">Inciante</option>
+                    <option value="intermediate">Intermediário</option>
+                 </select>
+             </div>
+
+
+             <div class="btn-alterar">
+                 <button class="cancelar" (click)="closeModal()">
+                    Cancelar
+                 </button>
+            
+                 <button class="save-changes">
+                    Salvar Alterações
+                 </button>
+             </div>
+        </div>
      </div>
-
-     <div>
-         <form class="form-group">
-            <label for="Nome">Nome</label>
-            <input type="text" name="Nome-user" id="Nome-user">
-    
-            <label for="biografia">Biografia</label>
-            <textarea name="biografia-edit" id="biografia-edit"></textarea>
-         </form>
-     </div>
-
-
-     <div class="habil">
-         <h3>Habilidades</h3>
-         <form>
-            <input type="checkbox" name="interesses" id="croche">
-            <label for="choices">Crochê</label>
-            <input type="checkbox" name="interesses" id="amigurumi">
-            <label for="choices">Amigurumi</label>
-            <input type="checkbox" name="interesses" id="macrame">
-            <label for="choices">Macramê</label>
-         </form>
-     </div>
-
-     <div class="nivel-conhecimento">
-         <h3>Nivel de conhecimento</h3>
-         <select name="level" id="level">
-            <option value="hard">Avançado</option>
-            <option value="begginner">Inciante</option>
-            <option value="intermediate">Intermediário</option>
-         </select>
-     </div>
-
-
-     <div class="btn-alterar">
-         <button class="cancelar">
-            Cancelar
-         </button>
-    
-         <button class="save-changes">
-            Salvar Alterações
-         </button>
-     </div>
-
      <!-- FIM DO MODAL EDITAR PERFIL -->
 
      <hr class="section-divider">

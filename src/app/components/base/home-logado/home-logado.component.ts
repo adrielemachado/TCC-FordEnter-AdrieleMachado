@@ -23,6 +23,13 @@ export class HomeLogadoComponent implements OnInit, OnDestroy {
   private userSubscription: Subscription | undefined;
   lastWatchedVideo$: Observable<VideoTutorial | null>;
 
+  slides = [
+    'assets/imagem-carrossel 01.png',
+    'assets/imagem-carrossel 02.png',
+    'assets/imagem-carrossel 03.png'
+  ];
+  currentSlide = 0;
+
   constructor(private videoService: VideoService, private authService: AuthService) {
     this.lastWatchedVideo$ = this.videoService.lastWatchedVideo$;
   }
@@ -42,11 +49,23 @@ export class HomeLogadoComponent implements OnInit, OnDestroy {
         this.welcomeMessage = '';
       }
     });
+
+    setInterval(() => {
+      this.nextSlide();
+    }, 5000); // Troca de slide a cada 5 segundos
   }
 
   ngOnDestroy(): void {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
     }
+  }
+
+  nextSlide(): void {
+    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+  }
+
+  prevSlide(): void {
+    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
   }
 }

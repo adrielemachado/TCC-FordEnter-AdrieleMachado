@@ -96,8 +96,13 @@ export class CadastroComponent implements OnInit {
   }
 
   showPassword = false;
+  showConfirmPassword = false;
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPasswordVisibility(): void {
+    this.showConfirmPassword = !this.showConfirmPassword;
   }
 }
