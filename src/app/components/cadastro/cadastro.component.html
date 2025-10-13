@@ -23,44 +23,63 @@
                 <div class="email">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" formControlName="email">
-                    <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)" class="error-message">
+                    <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)"
+                        class="error-message">
                         Por favor, insira um e-mail válido.
                     </div>
                 </div>
+
                 <div class="password">
                     <label for="password">Senha</label>
                     <div class="password-wrapper">
                         <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password">
-                            <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+                        <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
                             <span *ngIf="!showPassword">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
-  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-</svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-eye" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                                    <path
+                                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                                </svg>
                             </span>
                             <span *ngIf="showPassword">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
-  <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
-  <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
-  <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
-</svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-eye-slash" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+                                    <path
+                                        d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+                                    <path
+                                        d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+                                </svg>
                             </span>
                         </span>
                     </div>
-                    <div class="caractere">
-                        <ul class="caractere">
-                            <li [ngClass]="{'requirement-met': passwordRequirements.length}">Pelo menos 6 caracteres</li>
-                            <li [ngClass]="{'requirement-met': passwordRequirements.uppercase}">1 letra maiúscula</li>
-                            <li [ngClass]="{'requirement-met': passwordRequirements.number}">1 número</li>
-                            <li [ngClass]="{'requirement-met': passwordRequirements.special}">1 caractere especial (ex: &#64;, $, !, %, *, ?, &)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="password">
-                    <label for="confirmPassword">Confirmar Senha</label>
-                    <input type="password" id="confirmPassword" formControlName="confirmPassword">
-                    <div *ngIf="registrationForm.hasError('passwordsNotMatching') && registrationForm.get('confirmPassword')?.touched" class="error-message">
-                        As senhas não coincidem.
+
+
+                    <div class="password">
+                        <label for="confirmPassword">Confirmar Senha</label>
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword">
+                        <div *ngIf="registrationForm.hasError('passwordsNotMatching') && registrationForm.get('confirmPassword')?.touched"
+                            class="error-message">
+                            As senhas não coincidem.
+                        </div>
+
+                        <div class="caractere">
+                            <ul class="caractere">
+                                <li [ngClass]="{'requirement-met': passwordRequirements.length}">Pelo menos 6 caracteres
+                                </li>
+                                <li [ngClass]="{'requirement-met': passwordRequirements.uppercase}">1 letra maiúscula
+                                </li>
+                                <li [ngClass]="{'requirement-met': passwordRequirements.number}">1 número</li>
+                                <li [ngClass]="{'requirement-met': passwordRequirements.special}">1 caractere especial
+                                    (ex: &#64;, $, !, %, *, ?, &)</li>
+                            </ul>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -119,35 +138,44 @@
     <div class="modal-content" (click)="$event.stopPropagation()">
         <h2>Termos e Condições de Privacidade</h2>
         <div class="modal-body">
-            <p>Na <strong>Amor em Fios</strong>, sua privacidade e a segurança dos seus dados são muito importantes. Este é um resumo de
+            <p>Na <strong>Amor em Fios</strong>, sua privacidade e a segurança dos seus dados são muito importantes.
+                Este é um resumo de
                 como usamos as informações que você compartilha ao criar sua conta, de forma simples e transparente,
-                seguindo a Lei Geral de Proteção de Dados (LGPD) do Brasil. </p> 
-                <br>
-                <h4>Que dados coletamos e por quê?</h4>
-                <p>Ao se cadastrar, pedimos algumas informações. Veja para que serve cada uma delas:</p>
-                <p><strong>Seu Nome:</strong> Usamos seu nome para criar uma experiência mais pessoal e amigável. É muito mais legal ser
+                seguindo a Lei Geral de Proteção de Dados (LGPD) do Brasil. </p>
+            <br>
+            <h4>Que dados coletamos e por quê?</h4>
+            <p>Ao se cadastrar, pedimos algumas informações. Veja para que serve cada uma delas:</p>
+            <p><strong>Seu Nome:</strong> Usamos seu nome para criar uma experiência mais pessoal e amigável. É muito
+                mais legal ser
                 chamado pelo nome, não é?</p>
-                <p><strong>Seu Email e Senha:</strong> São essenciais para criar e proteger sua conta. O email funciona como seu login e é
+            <p><strong>Seu Email e Senha:</strong> São essenciais para criar e proteger sua conta. O email funciona como
+                seu login e é
                 por ele que enviaremos avisos importantes, como a recuperação de senha.</p>
-                <p><strong>Seus Interesses e Nível de Conhecimento:</strong> Saber se você prefere Crochê ou Amigurumi, e se está no nível
+            <p><strong>Seus Interesses e Nível de Conhecimento:</strong> Saber se você prefere Crochê ou Amigurumi, e se
+                está no nível
                 iniciante ou avançado, nos ajuda a personalizar o conteúdo para você. Assim, podemos sugerir os
                 tutoriais e projetos perfeitos para sua jornada criativa, tornando sua experiência única.</p>
-                    <br>
-                <h4>Seu Controle e Seus Direitos</h4>
-                <p>Você está no controle das suas informações.</p>
-                <p><strong>Comunicações por E-mail:</strong> Nós só enviaremos nossos e-mails com inspirações, dicas e novidades se você
+            <br>
+            <h4>Seu Controle e Seus Direitos</h4>
+            <p>Você está no controle das suas informações.</p>
+            <p><strong>Comunicações por E-mail:</strong> Nós só enviaremos nossos e-mails com inspirações, dicas e
+                novidades se você
                 marcar a opção para recebê-los. Se mudar de ideia, pode se descadastrar a qualquer momento.</p>
-                <p><strong>Compartilhamento de Dados:</strong> Nós temos um compromisso com você: não vendemos nem compartilhamos seus dados
+            <p><strong>Compartilhamento de Dados:</strong> Nós temos um compromisso com você: não vendemos nem
+                compartilhamos seus dados
                 pessoais com outras empresas para fins de marketing.</p>
-                <p><strong>Segurança:</strong> Suas informações são guardadas com segurança em nossa plataforma, usando as melhores práticas
+            <p><strong>Segurança:</strong> Suas informações são guardadas com segurança em nossa plataforma, usando as
+                melhores práticas
                 de proteção de dados.</p>
-                <p><strong>Seus Direitos:</strong> A LGPD garante que você pode, a qualquer momento, solicitar o acesso, a correção ou a
+            <p><strong>Seus Direitos:</strong> A LGPD garante que você pode, a qualquer momento, solicitar o acesso, a
+                correção ou a
                 exclusão dos seus dados.</p>
-                <br>
-                <h4>Dúvidas?</h4>
-                <p>Se tiver qualquer dúvida sobre como seus dados são tratados, por favor, fale com a gente pelo e-mail:
-                <strong>privacidade&#64;amoremfios.com.br.</strong></p>
-                <p>Nosso objetivo é criar um espaço seguro, transparente e, acima de tudo, inspirador para você.</p>
+            <br>
+            <h4>Dúvidas?</h4>
+            <p>Se tiver qualquer dúvida sobre como seus dados são tratados, por favor, fale com a gente pelo e-mail:
+                <strong>privacidade&#64;amoremfios.com.br.</strong>
+            </p>
+            <p>Nosso objetivo é criar um espaço seguro, transparente e, acima de tudo, inspirador para você.</p>
         </div>
         <button class="btn-fechar" (click)="closeModal()">Fechar</button>
     </div>
