@@ -1,9 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FooterLoginComponent } from '../base/footer-login/footer-login.component';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+
+// Validador customizado para verificar se as senhas coincidem
+function passwordsMatchValidator(control: AbstractControl): ValidationErrors | null {
+  const password = control.get('password');
+  const confirmPassword = control.get('confirmPassword');
+
+  if (password && confirmPassword && password.value !== confirmPassword.value) {
+    return { passwordsNotMatching: true };
+  }
+
+  return null;
+}
 
 @Component({
   selector: 'app-cadastro',
@@ -37,8 +49,9 @@ export class CadastroComponent implements OnInit {
       nascimento: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$')]),
+      confirmPassword: new FormControl('', [Validators.required]),
       lgpd: new FormControl(false, [Validators.requiredTrue])
-    });
+    }, { validators: passwordsMatchValidator });
 
     this.registrationForm.get('password')?.valueChanges.subscribe(value => {
       if (value) {

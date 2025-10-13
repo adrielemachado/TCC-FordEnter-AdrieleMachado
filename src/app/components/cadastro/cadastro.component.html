@@ -18,11 +18,14 @@
                 </div>
                 <div class="nascimento">
                     <label for="nascimento">Data de nascimento</label>
-                    <input type="date" id="nascimento" formControlName="nascimento">
+                    <input type="date" id="nascimento" formControlName="nascimento" min="1925-01-01" max="2026-12-31">
                 </div>
                 <div class="email">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" formControlName="email">
+                    <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)" class="error-message">
+                        Por favor, insira um e-mail válido.
+                    </div>
                 </div>
                 <div class="password">
                     <label for="password">Senha</label>
@@ -51,6 +54,13 @@
                             <li [ngClass]="{'requirement-met': passwordRequirements.number}">1 número</li>
                             <li [ngClass]="{'requirement-met': passwordRequirements.special}">1 caractere especial (ex: &#64;, $, !, %, *, ?, &)</li>
                         </ul>
+                    </div>
+                </div>
+                <div class="password">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" formControlName="confirmPassword">
+                    <div *ngIf="registrationForm.hasError('passwordsNotMatching') && registrationForm.get('confirmPassword')?.touched" class="error-message">
+                        As senhas não coincidem.
                     </div>
                 </div>
             </div>
