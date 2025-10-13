@@ -13,7 +13,7 @@ import { HeaderLogadoComponent } from '../base/header-logado/header-logado.compo
 @Component({
   selector: 'app-videos',
   standalone: true,
-  imports: [CardsComponent, CommonModule, HeaderComponent, FooterComponent, HeaderLogadoComponent],
+  imports: [CardsComponent, CommonModule, FooterComponent, HeaderLogadoComponent],
   templateUrl: './videos.component.html',
   styleUrl: './videos.component.css'
 })

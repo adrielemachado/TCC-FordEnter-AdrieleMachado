@@ -1,6 +1,5 @@
 <div class="app-container">
     <div *ngIf="showLayout">
-        <app-header *ngIf="!(isLoggedIn$ | async)"></app-header>
         <app-header-logado *ngIf="isLoggedIn$ | async"></app-header-logado>
     </div>
 

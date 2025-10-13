@@ -6,28 +6,15 @@
             <li><a routerLink="/welcome">Página Inicial</a></li>
             <li><a routerLink="/aulas-tutoriais">Aulas e Tutoriais</a></li>
             <li><a routerLink="/meu-atelie">Meu Ateliê Virtual</a></li>
+            <li><a routerLink="/meu-perfil">Meu Perfil</a></li>
         </ul>
     </nav>
 
     <div class="header-right">
-        <div *ngIf="!(isLoggedIn$ | async)">
-            <a routerLink="/">
+        <div class="user-actions" *ngIf="isLoggedIn$ | async">
+            <a routerLink="/meu-perfil">
                 <img class="icon-user" src="assets/user-icon.png" alt="Ícone do usuário">
             </a>
-        </div>
-
-
-        <button class="hamburguer" (click)="toggleMenu()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-                viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-            </svg>
-        </button>
-
-
-
-        <div *ngIf="isLoggedIn$ | async">
             <button class="btn-sair" (click)="logout()">
                 Sair
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -40,7 +27,13 @@
             </button>
         </div>
 
-
+        <button class="hamburguer" (click)="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg>
+        </button>
     </div>
 
 </header>

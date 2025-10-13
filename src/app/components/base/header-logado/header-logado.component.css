@@ -23,6 +23,12 @@ header {
     gap: 1rem;
 }
 
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 ul.itens {
     display: flex;
     font-family: "IBM Plex Sans", sans-serif;

@@ -4,14 +4,14 @@ import { Observable } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/base/header/header.component';
+
 import { HeaderLogadoComponent } from './components/base/header-logado/header-logado.component';
 import { FooterComponent } from './components/base/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, HeaderComponent, HeaderLogadoComponent, FooterComponent],
+  imports: [RouterOutlet, CommonModule, HeaderLogadoComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
