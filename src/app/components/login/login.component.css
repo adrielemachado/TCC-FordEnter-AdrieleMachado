@@ -100,6 +100,7 @@ main {
 input {
     width: auto;
     height: 30px;
+    border-radius: 1rem;
 }
 
 
