@@ -32,19 +32,21 @@
         </div>
     </section>
 
-    <!-- <div class="btn-editar">
-        <button class="editar-perfil">
+    <div class="btn-editar">
+        <button class="editar-perfil" (click)="openModal()">
             Editar Perfil
         </button>
-    </div> -->
+    </div>
+
+    <hr class="section-divider">
 
 
     <!-- MODAL PARA EDITAR PERFIL -->
-    <div class="modal-overlay" *ngIf="isModalOpen" (click)="closeModal()">
+    <div class="modal-overlay" [class.open]="isModalOpen" (click)="closeModal()">
         <div class="modal-content" (click)="$event.stopPropagation()">
             <div>
                 <h2 class="titulo-modal">Editar Perfil</h2>
-                <img src="#" alt="imagem de perfil">
+                <img src="https://placehold.co/128x128/E1C4E9/4B0082?text=A" alt="imagem de perfil">
                 <button class="change-pic">Alterar Foto</button>
             </div>
 
