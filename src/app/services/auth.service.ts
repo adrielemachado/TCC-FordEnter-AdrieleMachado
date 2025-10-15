@@ -108,4 +108,17 @@ export class AuthService {
       this.updateUsersInLocalStorage();
     }
   }
+
+  deleteAccount(): void {
+    const currentUser = this.currentUser.value;
+    if (!currentUser) return;
+
+    const userIndex = this.users.findIndex(u => u.email === currentUser.email);
+    if (userIndex > -1) {
+      this.users.splice(userIndex, 1);
+      this.updateUsersInLocalStorage();
+    }
+
+    this.logout();
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 
@@ -27,7 +28,7 @@ export class MyProfileComponent implements OnInit {
   showNewPassword = false;
   showConfirmPassword = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.accountSettingsForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.minLength(6)]),
@@ -94,6 +95,14 @@ export class MyProfileComponent implements OnInit {
       this.authService.updateUserProfile(updatedData);
       // Opcional: mostrar uma mensagem de sucesso
       alert('Configurações de conta salvas com sucesso!');
+    }
+  }
+
+  deleteUserAccount(): void {
+    const confirmed = window.confirm('Tem certeza que deseja excluir sua conta permanentemente? Esta ação não pode ser desfeita.');
+    if (confirmed) {
+      this.authService.deleteAccount();
+      this.router.navigate(['/']);
     }
   }
 
