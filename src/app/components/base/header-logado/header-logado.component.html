@@ -12,7 +12,7 @@
     <div class="header-right">
         <div class="user-actions" *ngIf="isLoggedIn$ | async">
             <a routerLink="/meu-perfil">
-                <img class="icon-user" src="assets/user-icon.png" alt="Ícone do usuário">
+                <img class="icon-user" [src]="avatarUrl" [alt]="'Ícone do perfil de ' + (user?.name || 'usuário')">
             </a>
             
             

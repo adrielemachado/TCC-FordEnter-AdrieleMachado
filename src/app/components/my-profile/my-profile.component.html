@@ -1,4 +1,4 @@
-<div class="my-profile">
+<div class="my-profile" *ngIf="user">
     <div class="titulo-profile">
         <h1>Meu Perfil</h1>
         <p>Gerencie seu perfil, suas preferências e sua conta.</p>
@@ -8,13 +8,12 @@
 
     <section class="biografia">
         <div class="user-pic">
-            <img src="https://placehold.co/128x128/E1C4E9/4B0082?text=A" alt="imagem de perfil">
+            <img [src]="avatarUrl" alt="imagem de perfil">
         </div>
 
         <div class="titulo-imagem">
-            <h2>{{ welcomeMessage }}</h2>
-            <p class="biografia">Apaixonada por fios e cores. Transformo linhas em arte e afeto. Bem-vindo(a) ao meu
-                cantinho!</p>
+            <h2>{{ user.name }}</h2>
+            <p class="biografia">{{ user.bio }}</p>
         </div>
     </section>
 
@@ -22,13 +21,13 @@
     <section class="skills">
 
         <div class="habilidades">
-            <h2>Minhas Habilidades:</h2>
-            <span>Amigurumi</span>
+            <h2>Minhas Habilidades</h2>
+            <span *ngFor="let skill of user.skills">{{ skill }}</span>
         </div>
 
         <div class="conhecimento">
-            <h2>Nivel de Conhecimento:</h2>
-            <span>Iniciante</span>
+            <h2>Nivel de Conhecimento</h2>
+            <span>{{ user.knowledgeLevel }}</span>
         </div>
     </section>
 
@@ -40,45 +39,49 @@
 
     <hr class="section-divider">
 
-
     <!-- MODAL PARA EDITAR PERFIL -->
     <div class="modal-overlay" [class.open]="isModalOpen" (click)="closeModal()">
         <div class="modal-content" (click)="$event.stopPropagation()">
-            <div>
-                <h2 class="titulo-modal">Editar Perfil</h2>
-                <img src="https://placehold.co/128x128/E1C4E9/4B0082?text=A" alt="imagem de perfil">
+            <h2 class="titulo-modal">Editar Perfil</h2>
+            <div class="alterar-foto">
+                <img [src]="avatarUrl" alt="imagem de perfil">
                 <button class="change-pic">Alterar Foto</button>
             </div>
 
-            <div>
-                <form class="form-group">
-                    <label for="Nome">Nome</label>
-                    <input type="text" name="Nome-user" id="Nome-user">
-
+            <div class="nome-bio">
+                <form class="form-group sobre">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name-user" id="name-user" [(ngModel)]="editingUser.name">
                     <label for="biografia">Biografia</label>
-                    <textarea name="biografia-edit" id="biografia-edit"></textarea>
+                    <textarea name="biografia-edit" id="biografia-edit" [(ngModel)]="editingUser.bio"></textarea>
                 </form>
             </div>
 
 
             <div class="habil">
                 <h3>Habilidades</h3>
-                <form>
-                    <input type="checkbox" name="interesses" id="croche">
-                    <label for="choices">Crochê</label>
-                    <input type="checkbox" name="interesses" id="amigurumi">
-                    <label for="choices">Amigurumi</label>
-                    <input type="checkbox" name="interesses" id="macrame">
-                    <label for="choices">Macramê</label>
+                <form class="escolha-check">
+
+                    <div class="artes crochet">
+                        <input type="checkbox" value="Crochê" [checked]="isSkillSelected('Crochê')" (change)="onSkillChange($event)"><label for="choices">Crochê</label>
+                    </div>
+
+                    <div class="artes amigu">
+                        <input type="checkbox" value="Amigurumi" [checked]="isSkillSelected('Amigurumi')" (change)="onSkillChange($event)"><label for="choices">Amigurumi</label>
+                    </div>
+
+                    <div class="artes macra">
+                        <input type="checkbox" value="Macramê" [checked]="isSkillSelected('Macramê')" (change)="onSkillChange($event)"><label for="choices">Macramê</label>
+                    </div>
                 </form>
             </div>
 
             <div class="nivel-conhecimento">
                 <h3>Nivel de conhecimento</h3>
-                <select name="level" id="level">
-                    <option value="hard">Avançado</option>
-                    <option value="begginner">Inciante</option>
-                    <option value="intermediate">Intermediário</option>
+                <select name="level" id="level" [(ngModel)]="editingUser.knowledgeLevel">
+                    <option value="Avançado">Avançado</option>
+                    <option value="Iniciante">Iniciante</option>
+                    <option value="Intermediário">Intermediário</option>
                 </select>
             </div>
 
@@ -88,7 +91,7 @@
                     Cancelar
                 </button>
 
-                <button class="save-changes">
+                <button class="save-changes" (click)="saveChanges()">
                     Salvar Alterações
                 </button>
             </div>
@@ -116,7 +119,7 @@
 
             <div class="birthday">
                 <label for="nascimento">Data de Nascimento</label>
-                <input type="date" name="Data" id="data" formControlName="nascimento" min="1925-01-01" max="2026-12-31">
+                <input type="date" name="Data" id="data" min="1925-01-01" max="2026-12-31">
             </div>
             
             <button class="save-changes">

@@ -100,7 +100,9 @@ main {
 input {
     width: auto;
     height: 30px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #421D6F;
+    padding: 0.5rem;
 }
 
 
@@ -174,7 +176,7 @@ button:disabled {
     color: #D8000C; /* Cor vermelha para erros */
     background-color: #FFD2D2; /* Fundo vermelho claro */
     border: 1px solid #D8000C;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     text-align: center;
     margin-top: 1rem;

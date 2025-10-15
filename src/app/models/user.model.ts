@@ -1,7 +1,10 @@
 export interface User {
-    nome?: string;
-    sobrenome?: string;
-    nascimento?: Date;
+    name?: string;
+    lastName?: string;
+    birthDate?: Date;
     email: string;
     password: string;
+    bio?: string;
+    skills?: string[];
+    knowledgeLevel?: string;
 }

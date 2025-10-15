@@ -20,7 +20,14 @@ export class AuthService {
       if (storedUsers) {
         this.users = JSON.parse(storedUsers);
       } else {
-        this.users = [{ nome: 'Usuário', sobrenome: 'Teste', email: 'usuario@email.com', password: 'Password@1' }];
+        this.users = [{
+          name: 'Usuário', 
+          lastName: 'Teste', 
+          email: 'usuario@email.com', 
+          password: 'Password@1', 
+          skills: ['Amigurumi'], 
+          knowledgeLevel: 'Iniciante' 
+        }];
         this.updateUsersInLocalStorage();
       }
 
@@ -76,6 +83,29 @@ export class AuthService {
 
   getCurrentUserName(): string {
     const user = this.currentUser.value;
-    return user && user.nome ? user.nome : 'Usuário';
+    return user && user.name ? user.name : 'Usuário';
+  }
+
+  updateUserProfile(updatedData: Partial<User>) {
+    const currentUser = this.currentUser.value;
+    if (!currentUser) return;
+
+    // Mescla os dados atualizados com o usuário atual
+    const updatedUser = { ...currentUser, ...updatedData };
+
+    // Atualiza o BehaviorSubject para que a UI reaja imediatamente
+    this.currentUser.next(updatedUser);
+
+    // Atualiza a lista de usuários principal
+    const userIndex = this.users.findIndex(u => u.email === currentUser.email);
+    if (userIndex > -1) {
+      this.users[userIndex] = updatedUser;
+    }
+
+    // Persiste as alterações no localStorage
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+      this.updateUsersInLocalStorage();
+    }
   }
 }

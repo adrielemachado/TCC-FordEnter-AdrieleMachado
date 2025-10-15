@@ -37,9 +37,9 @@ export class HomeLogadoComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.videosIniciante = this.videoService.getBeginnerVideos();
     this.userSubscription = this.authService.currentUser$.subscribe(user => {
-      if (user && user.nome) {
+      if (user && user.name) {
         this.isUserLoggedIn = true;
-        const firstName = user.nome.split(' ')[0];
+        const firstName = user.name.split(' ')[0];
         this.welcomeMessage = `Olá, ${firstName}! Boas-vindas ao Amor em Fios!`;
       } else if (user) {
         this.isUserLoggedIn = true;
