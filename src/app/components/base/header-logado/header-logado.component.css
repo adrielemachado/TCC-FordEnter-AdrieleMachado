@@ -55,13 +55,14 @@ ul a {
 }
 
 li:hover {
-   color: #421D6F;
+    color: #421D6F;
     font-weight: 600;
     transition: font-weight 0.3s ease-in-out;
     cursor: pointer;
 }
 
-.comeco:hover, .receitas:hover {
+.comeco:hover,
+.receitas:hover {
     font-weight: 600;
     cursor: pointer;
     transition: font-weight 0.3s ease;
@@ -111,7 +112,8 @@ li:hover {
         padding: 1rem;
     }
 
-    .hamburguer {        display: block;
+    .hamburguer {
+        display: block;
     }
 
     .menu {
@@ -131,7 +133,7 @@ li:hover {
         background-color: white;
         z-index: 1000;
         padding: 2rem;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     }
 
     .menu.menu-hamb ul.itens {
