@@ -24,6 +24,8 @@ export class MyProfileComponent implements OnInit {
   editingUser: Partial<User> = {};
   avatarUrl: string = '';
   accountSettingsForm: FormGroup;
+  showNewPassword = false;
+  showConfirmPassword = false;
 
   constructor(private authService: AuthService) {
     this.accountSettingsForm = new FormGroup({
@@ -115,6 +117,14 @@ export class MyProfileComponent implements OnInit {
       if (index > -1) {
         this.editingUser.skills.splice(index, 1);
       }
+    }
+  }
+
+  togglePasswordVisibility(field: 'new' | 'confirm'): void {
+    if (field === 'new') {
+      this.showNewPassword = !this.showNewPassword;
+    } else if (field === 'confirm') {
+      this.showConfirmPassword = !this.showConfirmPassword;
     }
   }
 }

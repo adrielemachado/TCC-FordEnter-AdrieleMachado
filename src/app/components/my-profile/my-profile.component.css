@@ -180,6 +180,33 @@
     padding: 0.75rem;
 }
 
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    flex-grow: 1;
+    padding-right: 40px; /* Garante espaço para o ícone */
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.password-toggle-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
 .validation-error {
   font-family: 'IBM Plex Sans', sans-serif;
   color: #DC2626;
