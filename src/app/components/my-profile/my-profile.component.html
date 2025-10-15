@@ -106,23 +106,32 @@
 
         <hr class="section-divider">
 
-        <form class="form-group">
+        <form class="form-group" [formGroup]="accountSettingsForm" (ngSubmit)="onAccountSettingsSubmit()">
             <div class="contato">
-                <label for="Nome">Nome</label>
-                <input type="text" name="usuario" id="usuario">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" formControlName="email">
+                <div *ngIf="accountSettingsForm.get('email')?.invalid && accountSettingsForm.get('email')?.touched" class="validation-error">
+                    Por favor, insira um email válido.
+                </div>
             </div>
 
             <div class="contato">
-                <label for="Email">Email</label>
-                <input type="email" name="email" id="email">
+                <label for="password">Nova Senha (opcional)</label>
+                <input type="password" name="password" id="password" formControlName="password">
+                 <div *ngIf="accountSettingsForm.get('password')?.hasError('minlength')" class="validation-error">
+                    A senha deve ter pelo menos 6 caracteres.
+                </div>
             </div>
 
-            <div class="birthday">
-                <label for="nascimento">Data de Nascimento</label>
-                <input type="date" name="Data" id="data" min="1925-01-01" max="2026-12-31">
+            <div class="contato">
+                <label for="confirmPassword">Confirmar Nova Senha</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword">
+                <div *ngIf="accountSettingsForm.hasError('passwordMismatch') && accountSettingsForm.get('confirmPassword')?.touched" class="validation-error">
+                    As senhas não coincidem.
+                </div>
             </div>
             
-            <button class="save-changes">
+            <button class="save-changes" type="submit" [disabled]="!accountSettingsForm.valid">
                 Salvar Alterações
             </button>
         </form>

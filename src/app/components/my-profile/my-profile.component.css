@@ -180,6 +180,13 @@
     padding: 0.75rem;
 }
 
+.validation-error {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #DC2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
 .save-changes {
     font-family: 'IBM Plex Sans';
     display: flex;
