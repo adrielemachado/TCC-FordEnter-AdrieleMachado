@@ -92,6 +92,10 @@ export class CadastroComponent implements OnInit {
     this.isInicianteSelected = !this.isInicianteSelected;
   }
 
+  goBackToLogin(): void {
+    this.router.navigate(['']);
+  }
+
   openModal(): void {
     this.isModalOpen = true;
   }
