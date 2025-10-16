@@ -23,4 +23,9 @@ export class AtelieComponent implements OnInit {
     this.userName = this.authService.getCurrentUserName();
     this.savedVideos = this.videoService.getSavedVideos();
   }
+
+  removeVideoFromAtelie(videoId: string): void {
+    this.videoService.removeVideo(videoId);
+    this.savedVideos = this.videoService.getSavedVideos(); // Atualiza a lista local
+  }
 }

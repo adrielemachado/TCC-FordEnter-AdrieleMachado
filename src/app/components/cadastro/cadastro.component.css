@@ -9,7 +9,7 @@
 :host {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Garante que o componente ocupe a tela toda */
+    flex-grow: 1; /* Faz o componente crescer para preencher o espaço no container pai */
 }
 
 form {
@@ -28,12 +28,7 @@ main {
     align-items: flex-start;
 }
 
-/* Transforma o componente inteiro em um container flex para o sticky footer */
-:host {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+
 
 header {
     background-color: #421D6F;

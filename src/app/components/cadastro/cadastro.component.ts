@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FooterLoginComponent } from '../base/footer-login/footer-login.component';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
