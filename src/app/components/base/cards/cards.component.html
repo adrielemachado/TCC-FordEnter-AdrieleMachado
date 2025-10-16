@@ -10,7 +10,7 @@
       <span class="level">{{ videoData.dificuldade }}</span>
     </div>
 
-    <a [routerLink]="['/assistir-video', videoData.videoId]">
+    <a [href]="'/assistir-video/' + videoData.videoId" target="_blank" rel="noopener noreferrer">
       <span class="title">
         {{ videoData.titulo }}
       </span>

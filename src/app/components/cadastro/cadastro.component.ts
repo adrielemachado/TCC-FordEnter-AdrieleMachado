@@ -70,7 +70,13 @@ export class CadastroComponent implements OnInit {
   onSubmit(): void {
     this.registrationError = '';
     if (this.registrationForm.valid) {
-      const success = this.authService.register(this.registrationForm.value);
+      const formValue = this.registrationForm.value;
+      const userToRegister = {
+        ...formValue,
+        name: `${formValue.nome} ${formValue.sobrenome}`
+      };
+
+      const success = this.authService.register(userToRegister);
       if (success) {
         this.router.navigate(['/welcome']);
       } else {
