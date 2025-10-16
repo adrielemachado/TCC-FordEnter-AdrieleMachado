@@ -43,12 +43,12 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({
-      nome: new FormControl('', [Validators.required]),
-      sobrenome: new FormControl('', [Validators.required]),
-      nascimento: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$')]),
-      confirmPassword: new FormControl('', [Validators.required]),
+      nome: new FormControl(null, [Validators.required]),
+      sobrenome: new FormControl(null, [Validators.required]),
+      nascimento: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$')]),
+      confirmPassword: new FormControl(null, [Validators.required]),
       lgpd: new FormControl(false, [Validators.requiredTrue])
     }, { validators: passwordsMatchValidator });
 
