@@ -1,5 +1,10 @@
 <header class="logo-cadastro">
-    <!-- <img src="/assets/logo=aplicação=white.svg" alt="Logo na cor branca"> -->
+    <button type="button" (click)="goBackToLogin()" class="back-to-login">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+        </svg>
+        <span>Voltar ao login</span>
+    </button>
     <h1 class="titulo">Crie sua conta</h1>
 </header>
 
@@ -94,11 +99,11 @@
                 <h2>Seus interesses</h2>
                 <p>Escolha apenas <strong>uma</strong> área que deseja aprender:</p>
                 <div class="btn_choices">
-                    <button type="button" class="btn_choices croche">Crochê</button>
-                    <button type="button" class="btn_choices tricot">Tricô</button>
+                    <button type="button" class="btn_choices croche" disabled>Crochê</button>
+                    <button type="button" class="btn_choices tricot" disabled>Tricô</button>
                     <button type="button" class="btn_choices amigurumi" [class.active]="isAmigurumiSelected"
                         (click)="toggleAmigurumi()">Amigurumi</button>
-                    <button type="button" class="btn_choices bordado">Macramê</button>
+                    <button type="button" class="btn_choices bordado" disabled>Macramê</button>
                 </div>
             </section>
 
@@ -108,8 +113,8 @@
                 <div class="btn_experiencia">
                     <button type="button" class="btn_experiencia iniciante" [class.active]="isInicianteSelected"
                         (click)="toggleIniciante()">Iniciante</button>
-                    <button type="button" class="btn_experiencia intermediario">Intermediário</button>
-                    <button type="button" class="btn_experiencia avancado">Avançado</button>
+                    <button type="button" class="btn_experiencia intermediario" disabled>Intermediário</button>
+                    <button type="button" class="btn_experiencia avancado" disabled>Avançado</button>
                 </div>
             </section>
 

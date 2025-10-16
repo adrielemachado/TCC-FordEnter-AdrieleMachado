@@ -36,8 +36,30 @@ header {
     color: white;
     align-items: center;
     justify-content: center;
-    
+    position: relative; /* Adicionado para posicionar o link de volta */
+    padding: 1rem 0;
 }
+
+.back-to-login {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.back-to-login:hover {
+    text-decoration: underline;
+}
+
 
 
 h2 {
@@ -155,6 +177,12 @@ input {
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1rem;
+}
+
+.btn_choices .croche:disabled, .btn_choices .tricot:disabled, .btn_choices .bordado:disabled, .btn_experiencia .intermediario:disabled, .btn_experiencia .avancado:disabled {
+    border: 1px solid rgb(177, 175, 175);
+    color: rgb(155, 152, 152);
+    background-color: rgb(223, 222, 222);
 }
 
 /* Aplica o cursor de clique apenas nos botões funcionais */
