@@ -266,7 +266,7 @@ button:disabled {
     input[type="email"], input[type="password"] {
         font-size: 1rem;
         padding: 0.75rem;
-        width: 100%;
+        width: 80%;
         box-sizing: border-box;
     }
 
