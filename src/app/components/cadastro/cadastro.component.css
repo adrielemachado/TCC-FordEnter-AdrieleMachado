@@ -183,6 +183,7 @@ input {
     border: 1px solid rgb(177, 175, 175);
     color: rgb(155, 152, 152);
     background-color: rgb(223, 222, 222);
+    cursor: not-allowed;
 }
 
 /* Aplica o cursor de clique apenas nos botões funcionais */
